@@ -1,6 +1,5 @@
 /**
  A message containing letters from A-Z is being encoded to numbers using the following mapping:
-
 'A' -> 1
 'B' -> 2
 ...
@@ -20,12 +19,14 @@ Explanation: It could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
  */
 
 
-/*  i:   0 1 2 3
+/* 
+ dp[i] means when length=i, string(0, i) how many ways to decode it
+    i:   0 1 2 3
    e.g:  1 2 3 1
         
   dp[0] = 1 pre-processing
   dp[1] = first char !=0 ? 1 : 0;
-  i=2
+  i=2. length=2, s=12
   one word = 2 = substring(i-1, i) , if it is within 1~9 dp[2] += dp[1]
   two word = 12 = substring(i-2, i), if it is within 10~26 dp[2] += dp[0] 
   dp[2]=2

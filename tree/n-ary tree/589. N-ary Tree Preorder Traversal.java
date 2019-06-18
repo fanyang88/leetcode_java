@@ -36,7 +36,8 @@ class Solution {
        while(!stack.isEmpty()) {
           Node cur = stack.pop();
           list.add(cur.val);
-          for (int i = cur.children.size() - 1; i >= 0; i--) // from right to left child
+          // from right to left child
+          for (int i = cur.children.size() - 1; i >= 0; i--) 
               stack.add(cur.children.get(i));
       }
       return list;
@@ -48,11 +49,8 @@ class Solution {
   List<Integer> list= new ArrayList<Integer>();
   public List<Integer> preorder(Node root) {
       if(root == null)  return list;
-      
       list.add(root.val);
-      for(Node child : root.children) 
-              preorder(child);
-      
+      for(Node child : root.children) preorder(child);
       return list;
   }
 }

@@ -32,7 +32,20 @@ Both the input and output have TreeNode type.
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
- keep compare root right subtree length with root left subtree length, return the one with larger length, then we get the answer
+ keep compare root right subtree length with root left subtree length, 
+ return the one with larger length, then we get the answer
+ e.g: 
+      3
+     / \
+    5   1
+  /  \  |  \
+ 6   2  0   8
+    /  \
+   7   4
+
+   at node 3, since left=3, right=2 go to left branch to check
+   at node 5, since left=1, right=2, go to right branch to check
+   at node 2, since left=1, right=1, return 2
  */
 class Solution {
   public TreeNode subtreeWithAllDeepest(TreeNode root) {

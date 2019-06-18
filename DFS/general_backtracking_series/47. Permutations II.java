@@ -17,7 +17,6 @@ class Solution {
       List<List<Integer>> res = new LinkedList<>();
       Arrays.sort(nums);
       boolean[] seen = new boolean[nums.length];
-      Set set = new HashSet();
       dfs(res, nums, new ArrayList<>(), seen);
       return res;
   }

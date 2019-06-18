@@ -29,7 +29,7 @@ So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
 According to the problem statement
 F(0) = (0A) + (1B) + (2C) + (3D) + (4E)
 F(1) = (4A) + (0B) + (1C) + (2D) + (3E)
-F(2) = (3A) + (4B) + (0C) + (1D) + (2*E)
+F(2) = (3A) + (4B) + (0C) + (1D) + (2E)
 
 This problem at a glance seem like a difficult problem. I am not very strong in mathematics, so this is how I visualize this problem
 

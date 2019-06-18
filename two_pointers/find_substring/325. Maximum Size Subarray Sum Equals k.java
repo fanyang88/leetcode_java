@@ -48,23 +48,18 @@ e.g: [1, 1, 2, -1, 0]  k=1
 */
 
 class Solution {
-  public int maxSubArrayLen(int[] nums, int k) {
-      if(nums.length ==0)  return 0;
-      int sum = nums[0], maxL= 0;
-      Map<Integer, Integer> map = new HashMap<>();
-      for(int i=1; i<nums.length; i++) {
-          sum+= nums[i];
-          nums[i] = sum;
-      }
-      // // add this fake entry to make sum from 0 to j consistent
-      map.put(0, -1); 
-      for(int i=0; i<nums.length; i++) {
-          if(map.containsKey(nums[i] - k)) {
-              maxL = Math.max(maxL, i-map.get(nums[i] - k));
-          }
-          // keep only 1st duplicate as we want first index as left as possible, THE KEY!!!
-          if(!map.containsKey(nums[i]))  map.put(nums[i], i);
-      }
-      return maxL;
-  }
+    public int maxSubArrayLen(int[] nums, int k) {
+        int sum =0, max = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        for(int i=0; i<nums.length; i++) {
+            sum += nums[i];
+            if(map.containsKey(sum - k)) {
+                max = Math.max(max, i - map.get(sum - k));
+            } 
+            if(!map.containsKey(sum))  map.put(sum, i);
+        }
+        return max;
+    }
 }
+

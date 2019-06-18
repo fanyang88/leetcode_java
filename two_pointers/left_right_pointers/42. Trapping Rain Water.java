@@ -24,7 +24,6 @@ class Solution {
       if(height.length ==0)  return 0;
       int n = height.length, res=0;
       int[] left= new int[n], right = new int[n];
-      
       left[0] = height[0];
       right[n-1] = height[n-1];
       

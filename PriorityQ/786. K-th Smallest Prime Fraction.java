@@ -49,8 +49,7 @@ class Solution {
               return A[o1[0]] * A[o2[1]] - A[o2[0]] * A[o1[1]];
           }
       });
-      for(int i=1; i<n; i++) 
-          pq.offer(new int[]{0, i});
+      for(int i=1; i<n; i++) pq.offer(new int[]{0, i});
       
       // now we iterative
       while(K-- > 0) {

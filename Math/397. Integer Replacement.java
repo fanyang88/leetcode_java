@@ -31,7 +31,6 @@ or
 
 /*
 even numbers are better than odd. This is quite obvious.
-
 What is not so obvious is what to do with odd numbers. 
 One may think that you just need to remove as many 1's as possible to increase the evenness of the number. 
 Wrong! Look at this example:

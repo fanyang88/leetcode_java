@@ -63,3 +63,36 @@ class Solution {
       return res;
   }
 }
+
+
+// recursive
+class Solution {
+    int i=0;
+    public String decodeString(String s) {
+        return dfs(s);
+    }
+    
+    String dfs(String s) {
+        StringBuilder sb = new StringBuilder();
+        int k=0;
+        for(; i<s.length(); i++) {
+            char chr = s.charAt(i);
+            if(chr == '[') {
+                i++;
+                String str = dfs(s);
+                while(k>0) {
+                    sb.append(str);
+                    k--;
+                }
+            } else if(chr == ']') {
+                break;
+            } else if (Character.isDigit(chr)) {
+                 k = k*10 + chr - '0';
+            } else {
+                sb.append(chr);
+            }
+        }
+        return sb.toString();
+    }
+}
+

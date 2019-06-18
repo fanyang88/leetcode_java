@@ -18,6 +18,10 @@ Inputs are in the left-hand column and its corresponding outputs are in the righ
 e.g: 1234 531 => 1235 134
 4<5  once the nums[i] < nums[i+1]  we find the first index, then we go from right to find the first number
 larger than nums[index1] swap those two numbers and reverse the number from index+1 to n-1 is the answer.       
+
+e.g: 123 1   5  3  1      swap     123 3  5  1 1     reverse   123 3 1 1 5
+        ind   ind2       ----->       ind   ind2     -------->      |------|
+
 */
 class Solution {
   public void nextPermutation(int[] nums) {

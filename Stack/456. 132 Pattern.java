@@ -24,15 +24,14 @@ Explanation: There are three 132 patterns in the sequence: [-1, 3, 2], [-1, 3, 0
 */
 
 /*
-    e.g:  [-1, 3, 2, 0]   i<j<k   ai<aK<aj
-    
-    st=[0]  since 2>0 0 would be potential s3 
+    e.g:  [-1, 3, 2, 0]   i<j<k   ai<aK<aj from right to left
+    st=[0]  since 2>0 0 would be potential s3, once we can find a value > potential s3, return true
     st[2] since 3>2 2 would be potential s3  
     0, since 0<s3, we found a sequence, return true
     
     [3,1,4,2]
     st=[2] 
-    4: since 4>2 set s3=2 st=[4]
+    4: since 4>2 set s3=2 pop st, push 4 to st, st=[4]
     1: since 1<2(s3) return t
     
     Suppose we want to find a 123 sequence with s1 < s2 < s3, we just need to find s3, followed by s2 and s1. Now if we want to find a 132 sequence with s1 < s3 < s2, we need to switch up the order of searching. we want to first find s2, followed by s3, then s1.
@@ -53,11 +52,11 @@ Once we encounter any number smaller than s3, we know we found a valid sequence 
 class Solution {
   public boolean find132pattern(int[] nums) {
       Stack<Integer> st= new Stack<>();
-      int Ak = Integer.MIN_VALUE;
+      int potential = Integer.MIN_VALUE;
       for(int i=nums.length-1; i>=0; i--) {
-          if(nums[i] < Ak && Ak != Integer.MIN_VALUE)  return true;
+          if(nums[i] < potential && potential != Integer.MIN_VALUE)  return true;
           while(!st.isEmpty() && nums[i] > st.peek()) {
-              Ak = st.pop();
+            potential = st.pop();
           }
           st.push(nums[i]);
       }

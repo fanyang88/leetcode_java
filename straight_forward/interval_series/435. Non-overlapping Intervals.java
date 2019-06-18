@@ -36,7 +36,7 @@ Explanation: You don't need to remove any of the intervals since they're already
  e.g:  [1,2], [2,3], [3,4], [1,3] 
  sort: [1,2] [1,3] [2,3] [3,4]
         start=1 end=2 
-        [1,3] since 1<end do nothing
+        [1,3] since 1<end means there is a overlapping
         [2,3] since 2=end count++=2, means this is non-overlap one, end= 3
         [3,4] since 3=end count++=3, means this is non-overlap one, end= 4
         

@@ -42,7 +42,7 @@ class Solution {
   }
   
   public boolean dfs(int lenB, int[] A, int sumB, int index, int len, int sum) {
-      if(sum >= sumB || len >= lenB) {
+      if(sum >= sumB || len = lenB) {
           if(sum == sumB && len >= lenB) return true;
           return false;
       }

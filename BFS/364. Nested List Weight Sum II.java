@@ -49,7 +49,6 @@ Explanation: One 1 at depth 3, one 4 at depth 2, and one 6 at depth 1; 1*3 + 4*2
  * }
  
  BFS:
- 
  [1,[4,[6]]]
  Q: {1, [4,[6]]}
  poll 1: levelsum=1
@@ -66,9 +65,7 @@ class Solution {
     
   public int depthSumInverse(List<NestedInteger> nestedList) {
       Queue<NestedInteger> q = new LinkedList<>();
-      for(NestedInteger item: nestedList) {
-          q.offer(item);
-      }
+      for(NestedInteger item: nestedList) q.offer(item);
       int prev =0, total=0;
       
       while(!q.isEmpty()) {

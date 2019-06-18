@@ -55,7 +55,7 @@ class Solution {
       int maxV = Integer.MIN_VALUE;
       for(int i=0; i<points.length; i++) {
           int dup=1; // itself need to be included
-          Map<String, Integer> map = new HashMap<>();
+          Map<String, Integer> map = new HashMap<>(); // clean map
           for(int j=0; j<points.length; j++) {
               if(i==j)  continue;
               if(points[j].x==points[i].x && points[j].y==points[i].y) {

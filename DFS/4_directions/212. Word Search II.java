@@ -33,7 +33,7 @@ Output: ["eat","oath"]
  h                     n
  
  then we backtrack from each point on the board
- e.g: start from (0, 0) =o make it as visited, find a (0, 1) make it as visited, till we found the h,         add to result, we should make h.word=null, 
+ e.g: start from (0, 0) =o make it as visited, find a (0, 1) make it as visited, till we found the h, add to result, we should make h.word=null, 
         so that we won't go search the same word again, this is the point
 
 Another corner case is there can be [app, apple] in words

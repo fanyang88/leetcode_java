@@ -38,8 +38,6 @@ e.g:
          2: end: 4
         "1:end:  5",
         "0:end:  6"
- 
- 
  process input using stack
  push[0,0]
  push[1,2]

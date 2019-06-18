@@ -37,21 +37,19 @@ The height of a rooted tree is the number of edges on the longest downward path 
 */
 
 /*
-[[0, 3], [1, 3], [2, 3], [4, 3], [5, 4]]
- 
+input: [[0, 3], [1, 3], [2, 3], [4, 3], [5, 4]]
  0:[3]
  1:[3]
  2:[3]
  3: [0, 1, 2, 4]
  4:[3, 5]
  5: [4]
- 
  find all nodes only have one neighbor and push onto stack, they are the leave nodes
  st: [0, 1,2 5]
  cur = 0 st:[1,2,5]  0 has neibhbor 3, delete 0 in 3's neighbor list
  cur = 1 st:[2,5]  1 has neibhbor 3,   delete 1 in 3's neighbor list
- cur = 2 st:[5]  2 has neibhbor 3,  delete 2 in 3's neighbor list, now 3 only have one nost in list, push to st
- cur = 5 st:[]  5 has neibhbor 4,  delete 5 in 4's neighbor list, now 4 only have one nost in list, push 4 onto st, 
+ cur = 2 st:[5, 3]  2 has neibhbor 3,  delete 2 in 3's neighbor list, now 3 only have one nost in list, push to st
+ cur = 5 st:[3, 4]  5 has neibhbor 4,  delete 5 in 4's neighbor list, now 4 only have one nost in list, push 4 onto st, 
  st = [3, 4]  since each of the neighbor is only one, all leave node, this would be the answer
  
 */

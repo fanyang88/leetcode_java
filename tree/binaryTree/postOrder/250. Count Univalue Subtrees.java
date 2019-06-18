@@ -24,6 +24,13 @@ Output: 4
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+ * 
+  when @leftmost 5, isUnivalue(node.left=null)=true & isUnivalue(node.right=null)=true
+  count++, return true
+  when @middlemost 5, isUnivalue(node.left=null)=true & isUnivalue(node.right=null)=true
+  count++, return true
+  when @1, isUnivalue(node.left)==true & isUnivalue(node.right)==true, but 1!=5, so return false
+ * 
  */
 class Solution {
   int count=0;
@@ -32,16 +39,14 @@ class Solution {
       return count;
   }
   
-  public boolean dfs(TreeNode root) {
-      if(root == null)  return true;
-      boolean left = dfs(root.left);
-      boolean right = dfs(root.right);
-      if(left && right) {  // the left subtree and right subtree have uni value, now compare they with the root
-          if(root.left != null && root.left.val != root.val)  return false;
-          if(root.right != null && root.right.val != root.val)  return false;
-          count++;
-          return true;
-      }
-      return false; // not a full tree
+  public boolean isUnivalue(TreeNode node){
+    if(node == null) return true;
+    if(isUnivalue(node.left) & isUnivalue(node.right)){
+        if(node.left != null && node.left.val != node.val) return false;
+        if(node.right != null && node.right.val != node.val) return false;
+        count += 1;
+        return true;
+    }
+    return false; 
   }
 }

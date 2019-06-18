@@ -13,11 +13,9 @@ class Solution {
  
  // the next number we need to find
  int next = lower;
- 
  for (int i = 0; i < nums.length; i++) {
    // not within the range yet
    if (nums[i] < next) continue;
-   
    // continue to find the next one
    if (nums[i] == next) {
      // each time we try to add next, check if it is already max_value to avoid overflow
@@ -25,19 +23,16 @@ class Solution {
      next++;
      continue;
    }
-   
    // get the missing range string format
    res.add(getRange(next, nums[i] - 1));
    
    // now we need to find the next number
    if(nums[i] == Integer.MAX_VALUE)  return res;
    next = nums[i] + 1;
-   
  }
  
  // do a final check
  if (next <= upper) res.add(getRange(next, upper));
-
  return res;
 }
 

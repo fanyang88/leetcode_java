@@ -30,17 +30,17 @@ A is a mountain, as defined above.
 */
 
 class Solution {
-  public int peakIndexInMountainArray(int[] A) {
-      int s = 0, e = A.length-1;
-      while(s < e) {
-          int mid = s + (e - s)/2;
-          int next = mid+1>=A.length? Integer.MIN_VALUE:A[mid+1];
-          if(A[mid] > next) { // peak on left side
-               e= mid;
-          } else {
-              s = mid+1;
-          }
-      }
-      return e;
-  }
+    public int peakIndexInMountainArray(int[] A) {
+        int lo = 0, hi = A.length-1;
+        while(lo < hi) {
+            int mid = lo + (hi - lo)/ 2;
+            if(A[mid] > A[mid+1]) {
+                hi = mid; // potential answer
+            } else {
+                lo = mid+1;
+            }
+        }
+        return hi;
+    }
 }
+

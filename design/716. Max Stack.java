@@ -45,7 +45,6 @@ The last four operations won't be called when stack is empty.
 
 class MaxStack {
   Stack<Integer> st, maxSt;
-  /** initialize your data structure here. */
   public MaxStack() {
       st = new Stack<>();
       maxSt = new Stack<>();
@@ -62,14 +61,6 @@ class MaxStack {
       return val;
   }
   
-  public int top() {
-      return st.peek();
-  }
-  
-  public int peekMax() {
-      return maxSt.peek();
-  }
-  
   public int popMax() {
       Stack<Integer> temp = new Stack<>();
       int max = maxSt.peek();
@@ -79,8 +70,7 @@ class MaxStack {
       maxSt.pop();
       while(!temp.isEmpty()) {
           int val = temp.pop();
-          st.push(val);
-          if(maxSt.isEmpty() || maxSt.peek() <=val) maxSt.push(val);// This is the key!!!
+          this.push(val);// This is the key!!!
       }
       return max;
   }

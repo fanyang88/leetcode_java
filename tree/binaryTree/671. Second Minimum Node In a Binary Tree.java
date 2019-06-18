@@ -35,19 +35,23 @@ Explanation: The smallest value is 2, but there isn't any second smallest value.
  * }
  */
 class Solution {
-  public int findSecondMinimumValue(TreeNode root) {
-      if(root==null) return -1;
-      if(root.left == null && root.right==null)  return -1;
-      int left= root.left ==null ? -1 : root.left.val;
-      int right=root.right ==null ? -1 : root.right.val;
-      if(root.left != null && root.left.val == root.val) {
-          left = findSecondMinimumValue(root.left); // keep find a smaller one
-      }
-      if(root.right != null && root.right.val == root.val) {
-          right = findSecondMinimumValue(root.right); // keep find a smaller one 
-      }
-      if(left !=-1 && right !=-1) return Math.min(left, right);
-      if(left==-1) return right;
-      return left;
-  }
+    int min1= -1, min2=-1;
+    public int findSecondMinimumValue(TreeNode root) {
+        dfs(root);
+        return min2;
+    }
+    
+    void dfs(TreeNode root) {
+        if(root == null) return;
+        dfs(root.left);
+        if(min1 == -1) {
+            min1 = root.val;
+        } else if(min1 > root.val) {
+            min2 = min1;
+            min1 = root.val;
+        } else if(min1 < root.val) {
+            min2 = min2==-1 ? root.val : Math.min(min2, root.val);
+        }
+        dfs(root.right);
+    }
 }

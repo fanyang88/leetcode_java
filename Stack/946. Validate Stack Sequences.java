@@ -38,8 +38,9 @@ next push 5,since 5 is = popped[0] pop 5, stack still have 1 and 2 left.
 
 class Solution {
   public boolean validateStackSequences(int[] pushed, int[] popped) {
-      int pointer= 0; // point to popped
+      
       Stack<Integer> st = new Stack<>();
+      int pointer= 0; // point to popped
       for(int i=0; i<pushed.length; i++) {
           st.push(pushed[i]);
           while(st.size() > 0 && pointer < popped.length && popped[pointer] == st.peek()) {

@@ -19,7 +19,7 @@ Write a function to determine the knight's minimum initial health so that he is 
 For example, given the dungeon below, 
 the initial health of the knight must be at least 7 if he follows the optimal path RIGHT-> RIGHT -> DOWN -> DOWN.
 
--2 (K)	-3	3
+-2 	-3	3
 -5	-10	1
 10	30	-5 (P)
  
@@ -45,7 +45,8 @@ even the first room the knight enters and the bottom-right room where the prince
  
  dp[i][j] = dp[i+1][j] - dungeon[i][j] 
  
- if we only go left, before going to 30, we should have at least 5, but 6-30<0 so we set it to be 1, since knight at least have 1
+ if we only go left, before going to 30, we should have at least 5, but 6-30<0 so we set it to be 1,
+  since knight at least have 1
     dp[i][j] = dp[i][j+1] - dungeon[i][j]
     if(dp[i][j] <=0)  dp[i][j]= 1
  
@@ -53,7 +54,7 @@ even the first room the knight enters and the bottom-right room where the prince
  -5     -10  5
   1      1   6
  we check each element inside, for dp[m-2][m-2] the min = 5 - (-10) or 1 - (-10)
- dp[i][j] = min(dp[i+1][j], dp[i][j+1]) - dp[i][j]
+ dp[i][j] = min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j]
   7     5    2
   6     11   5
   1     1    6

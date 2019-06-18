@@ -31,21 +31,20 @@ Explanation: nums = [3,1,5,8] --> [3,5,8] -->   [3,8]   -->  [8]  --> []
  dp[i][j] = max(dp[i][k-1] + nums[i-1]*nums[k]*nums[j+1] + dp[k+1][j]);   i=<k<=j
  len = 1 to N
  
- 
  [3,1,5,8] 
  
      0  1   2   3
-0    3
+0    3 30
 1      15
-2           
-3
+2           40
+3               40
  
 when len=1 if the last burst is {0} cost=0+0+1*3*1=3
            if the last burst is {1} cost=0+0+3*1*5=15
            if the last burst is {2} cost=0+0+1*5*8=40
            if the last burst is {3} cost=0+0+5*8*1=40
-when len=2 [3,1] if the last burst is {0} cost=0+dp[1][1]+1*3*5=30
-                 if the last burst is {1} cost=dp[0][0] + 0 + 1*1*5 = 8, so max=30
+when len=2 [3,1] if burst 1 then burst 3: cost=0(since it is empty on left of 3)+dp[1][1](burst 1 cost)+1*3*5=30
+                 if burst 3 then burst 1: cost=dp[0][0] + 0 + 1*1*5 = 8, so max=30
                  ....
           
 
@@ -55,7 +54,6 @@ class Solution {
       int n = nums.length;
       if(n==0) return 0;
       int[][] dp = new int[n][n];
-      
       for(int len=1; len<=nums.length; len++) {
           int i=0, j=len-i-1;
           for(;j<nums.length; i++, j++) {

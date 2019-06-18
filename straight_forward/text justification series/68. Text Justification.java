@@ -59,8 +59,7 @@ Output:
     There are 3 cases:
        "acknowledgment  ",
         "shall be        "
-    1. when there is only one word can fit in one line, e.g line 2
-        just add blank space after this word
+    1. when there is only one word can fit in one line, e.g line 2, just add blank space after this word
     2. When we reach to the end of the words, add words from cur to last-1 to this line and follow spaces.
     3. general case, we calculate average spaces for between each word and the remain need to add up during loop
 
@@ -79,7 +78,7 @@ class Solution {
               curLen += 1+words[next].length();
               next++;
           }
-          if(next == n || next-cur==1) {
+          if(next == n || next-cur==1) { // there is only one word or line is the last line
               for(int i=cur+1; i<next; i++) 
                   line.append(" "+words[i]);
                   line.append(getSpace(maxWidth - curLen));       

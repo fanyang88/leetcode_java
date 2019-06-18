@@ -37,7 +37,7 @@ If 99% of all integer numbers from the stream are between 0 and 100, how would y
   
   when add number, we add to max first
   then we get the smallest from max and put it in min
-  however, if max.size < min.size we need to get the largest from min to put in max
+  however, if max.size < min.size we need to get the largest from min to put back in max
   
   max.poll -> return the smallest
   min.poll -> return the largest

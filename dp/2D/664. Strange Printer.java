@@ -28,7 +28,7 @@ Hint: Length of the given string will not exceed 100.
         我们关心的是字符相等的地方，对于[i, j]范围的字符，我们从i+1位置上的字符开始遍历到j，如果和i位置上的字符相等，我们就以此位置为界，将[i+1, j]范围内的字符拆为两个部分，
         将二者的dp值加起来，和原dp值相比，取较小的那个。所以我们的递推式如下:
 
-dp[i][j] = min(dp[i][j], dp[i + 1][k - 1] + dp[k][j]       (s[k] == s[i] and i + 1 <= k <= j)
+dp[i][j] = min(dp[i][j], dp[i + 1][k - 1] + dp[k][j])      (s[k] == s[i] and i + 1 <= k <= j)
 split i+1~j array to be: from i+1 to k-1 and k ~j
     
     要注意一些初始化的值，dp[i][i]是1，因为一个字符嘛，打印1次，还是就是在遍历k之前，dp[i][j]初始化为 1 + dp[i + 1][j]，为啥呢，可以看成在[i + 1, j]的范围上多加了一个s[i]字符，最坏的情况就是加上的是一个不曾出现过的字符，步数顶多加1步，注意我们的i是从后往前遍历的，

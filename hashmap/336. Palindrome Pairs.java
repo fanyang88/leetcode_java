@@ -46,9 +46,7 @@ class Solution {
   public List<List<Integer>> palindromePairs(String[] words) {
       Map<String, Integer> map = new HashMap<String, Integer>();
       List<List<Integer>> res = new ArrayList<List<Integer>>();
-      for(int i=0; i<words.length; i++) {
-          map.put(words[i], i);
-      }
+      for(int i=0; i<words.length; i++) map.put(words[i], i);
       
       for(int i=0; i<words.length; i++) {
           for(int j=0; j<=words[i].length(); j++) {   // <= not <, this is KEY1!!!
@@ -64,9 +62,8 @@ class Solution {
                   }
               }
               if(isPalindrome(sub2)) {
-                  String reverse = new StringBuilder(sub1).reverse().toString();
-                                                                         // sub2!='' KEY 2!!!
-                  if(map.containsKey(reverse) && map.get(reverse) != i && sub2.length() > 0) { 
+                  String reverse = new StringBuilder(sub1).reverse().toString();                    
+                  if(map.containsKey(reverse) && map.get(reverse) != i && sub2.length() > 0) {  // sub2!='' KEY 2!!!
                       List<Integer> list = new ArrayList<Integer>();
                       list.add(i);
                       list.add(map.get(reverse));

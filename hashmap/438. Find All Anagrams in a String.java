@@ -30,6 +30,21 @@ The substring with start index = 1 is "ba", which is an anagram of "ab".
 The substring with start index = 2 is "ab", which is an anagram of "ab".
 */
 
+/**
+ 
+s: "abab" p: "ab"
+i=2 j=0 s[2]=a s[0]=a map is still 0, res add j+1=1
+i=3 j=1 s[3]=b s[1]=b map is still 0, res add j+1=2
+    0123456789
+s: "cbaebabacd" p: "abc"
+i=3 j=0 s[3]=e s[0]=c e--=-1 c++=1 map not all zero
+i=4 j=1 s[4]=b s[1]=b b=0 map not all zero
+i=5 j=2 s[5]=a s[2]=a a=0 map not all zero
+i=6 j=3 s[6]=b s[3]=e b--=-1 e++=0 
+i=7 j=4 s[7]=a s[4]=b a--=-1 b=0 
+i=8 j=5 s[8]=c--=0 s[5]=a++=0 all zero res add j+1=6
+ */
+
 class Solution {
   public List<Integer> findAnagrams(String s, String p) {
       List<Integer> res = new ArrayList<Integer>();

@@ -35,7 +35,7 @@ Notice that a/aa/aaa/file1.txt is not the longest file path, if there is another
 
 /*
     BFS alike
-    "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"=[dir, \tsubdir1, \tsubdir2, \t\tfile.txt]
+     "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.txt"  ====>  [dir, \tsubdir1, \tsubdir2, \t\tfile.txt]
      st=[] level=0
      getLveL(dir)=0 since st.length=0 = level direct push dir, sum=3 max=3
      getLveL(\tsubdir1)=1 since st.length=1=level direct push to st[dir, subdir1], sum=3+8 max=11

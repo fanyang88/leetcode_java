@@ -3,7 +3,8 @@ An undirected, connected graph of N nodes (labeled 0, 1, 2, ..., N-1) is given a
 
 graph.length = N, and j != i is in the list graph[i] exactly once, if and only if nodes i and j are connected.
 
-Return the length of the shortest path that visits every node. You may start and stop at any node, you may revisit nodes multiple times, and you may reuse edges.
+Return the length of the shortest path that visits every node. You may start and stop at any node, 
+you may revisit nodes multiple times, and you may reuse edges.
 
  
 
@@ -26,8 +27,7 @@ Note:
 */
 
 /*
-        start from each node
-        init state for each node can be: state = 1<< node
+        since start from any node, init state for each node can be: state = 1<< node
         the ideal state should be (1 << n) -1 which means all n digits are visited
         we need to record if the path has visited with which node
         if visited, shouldn't go again

@@ -54,7 +54,6 @@ class Solution {
       int n = nums.length;
       double[] res = new double[n-k+1];
       List<Integer> window = new ArrayList<>();
-      
       for(int i=0; i<k; i++)  window.add(nums[i]);
       Collections.sort(window);
       res[0] = getMedian(window, k);
@@ -87,8 +86,7 @@ class Solution {
   }
   
   public double getMedian(List<Integer>window, int k) {
-      double m = window.get(k/2);
-      double n = window.get((k-1)/2);
+      double m = window.get(k/2), n = window.get((k-1)/2);
       return n + (m-n)/2.0;
   }
 }

@@ -31,7 +31,6 @@ You may assume that all operations are valid (for example, no pop or peek operat
 class MyQueue {
 
   Stack<Integer> st;
-  /** Initialize your data structure here. */
   public MyQueue() {
       st = new Stack<Integer>();
   }

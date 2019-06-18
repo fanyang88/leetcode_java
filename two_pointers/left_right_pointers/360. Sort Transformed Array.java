@@ -40,11 +40,10 @@ Output: [-23,-5,1,7]
 class Solution {
   public int[] sortTransformedArray(int[] nums, int a, int b, int c) {
       int n = nums.length,  i=0, j=n-1;
-      int k= a<0 ? 0: n-1;
       int[] res = new int[n];
-      
+      int k= a<0 ? 0: n-1;
       for(int m=0; m<n; m++) {
-          nums[m] = get(nums[m], a, b, c);
+          nums[m] = nums[m]*nums[m]*a + nums[m]*b + c;
       }
       while(i<=j) {
           if(a>=0) {

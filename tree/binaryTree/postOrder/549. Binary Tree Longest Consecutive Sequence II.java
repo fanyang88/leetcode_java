@@ -37,8 +37,13 @@ Note: All the values of tree nodes are in the range of [-1e7, 1e7].
  
  post order, 
  how we define the dec and inc: 
- from root as start, if root.val > root.left.val . it is dec, if root.left.val > root.val it is inc
-                     if root.val > root.right.val  it is dec, if root.val < root.right.val it is inc
+ from root as start, if root.val > root.left.val . it is dec, 
+                     if root.val < root.left.val it is inc
+                     if root.val > root.right.val  it is dec, 
+                     if root.val < root.right.val it is inc
+ we store the [inc, dec] from left branch and right branch
+ at root, using above rules to modify inc, dec to get the max inc, dec
+ result is inc+dec-1
  */
 class Solution {
   int maxV=0;

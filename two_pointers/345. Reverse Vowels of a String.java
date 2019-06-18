@@ -35,7 +35,6 @@ class Solution {
           } else  { 
               j--;
           }
-          
       }
       return new String(str);
   }

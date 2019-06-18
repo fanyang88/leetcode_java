@@ -20,35 +20,35 @@ You may assume both pattern and str contains only lowercase letters.
 */
 
 class Solution {
-  public boolean wordPatternMatch(String pattern, String str) {
-      int m= pattern.length(), n =str.length();
-      Map<Character, String> map = new HashMap<>();
-      Set<String> set = new HashSet<>();
-      return dfs(0, 0, pattern, str, m, n, map, set);
-  }
-  
-  public boolean dfs(int pp, int ps, String pattern, String str, int m, int n, Map<Character, String> map, Set<String> set) {
-      if(pp==m && ps==n) return true;
-      if(pp==m || ps==n) return false;
-      char cur = pattern.charAt(pp);
-      if(map.containsKey(cur)) {
-          // get the value
-          String value = map.get(cur);
-          // check if str from ps start with value
-          if(!str.startsWith(value, ps)) return false;
-          return dfs(pp+1, ps+value.length(), pattern, str, m, n, map, set);
-      } else { // we don't have this mapping, 
-          for(int i=ps; i<n; i++) {
-              String value = str.substring(ps, i+1);
-              if(set.contains(value)) continue; // tried
-              set.add(value);
-              map.put(cur, value);
-              if(dfs(pp+1, ps+value.length(),  pattern, str, m, n, map, set)) return true;
-              set.remove(value);
-              map.remove(cur);
-          }
-          
-      }
-      return false;
-  }
+    public boolean wordPatternMatch(String pattern, String str) {
+        int m= pattern.length(), n =str.length();
+        Map<Character, String> map = new HashMap<>();
+        Set<String> set = new HashSet<>();
+        return dfs(0, 0, pattern, str, m, n, map, set);
+    }
+    
+    public boolean dfs(int pp, int ps, String pattern, String str, int m, int n, Map<Character, String> map, Set<String> set) {
+        if(pp==m && ps==n) return true;
+        if(pp==m || ps==n) return false;
+        char cur = pattern.charAt(pp);
+        if(map.containsKey(cur)) {
+            // get the value
+            String value = map.get(cur);
+            // check if str from ps start with value
+            if(!str.startsWith(value, ps)) return false;
+            return dfs(pp+1, ps+value.length(), pattern, str, m, n, map, set);
+        } else { // we don't have this mapping, 
+            for(int i=1; i+ps<=n; i++) {
+                String value = str.substring(ps, ps+i);
+                if(set.contains(value)) continue; // tried
+                set.add(value);
+                map.put(cur, value);
+                if(dfs(pp+1, ps+value.length(),  pattern, str, m, n, map, set)) return true;
+                set.remove(value);
+                map.remove(cur);
+            }
+            
+        }
+        return false;
+    }
 }

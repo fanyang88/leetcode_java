@@ -63,9 +63,7 @@ class FreqStack {
   HashMap<Integer, Integer> freq = new HashMap<>();
   HashMap<Integer, Stack<Integer>> map = new HashMap<>();
   int maxfreq = 0;
-  public FreqStack() {
-      
-  }
+  public FreqStack() {}
   
   public void push(int x) {
       // get freq first

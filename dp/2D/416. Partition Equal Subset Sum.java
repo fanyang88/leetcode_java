@@ -26,9 +26,8 @@ The key is to find a subset of numbers in the array that could sum to sum(nums)/
 
  dp[i][0] = true, dp[0][j] = false; dp[0][0] = true 
  dp[i][j] means if there is a subset exist from 0-i that could sum to j
- dp[i][j] = dp[i-1][j]  // without add nums[i]
+ dp[i][j] = dp[i-1][j] or  // without add nums[i]
  dp[i][j] = dp[i-1][j-nums[i]]  // with add nums[i]
- so ince j>= nums[i]  we need to get the or result
  
       0      1      2       3       4       5       6       7       8      9     10     11
   0  true, false,  false, false, false,  false,  false,  false,  false, false,  false, false

@@ -48,7 +48,7 @@ Can you solve it using O(1) (i.e. constant) memory?
  3->2->0->-4
        ^
        |---|
- fast = 3 slow=3: fast = 2 fast=0 slow=2
+ fast = 3 slow=3: fast = 0 slow=2
  fast = 0 slow=2: fast = -4 fast=0 slow=0  slow = fast so there is a cycle
  */
 public class Solution {

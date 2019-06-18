@@ -63,7 +63,6 @@ class RandomizedCollection {
           this.index= index;
       }
   }
-
   HashMap<Integer, List<Integer>> map;
   List<Node> list;
   /** Initialize your data structure here. */

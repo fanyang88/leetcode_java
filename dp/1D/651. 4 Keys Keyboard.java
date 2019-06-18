@@ -42,9 +42,8 @@ Answers will be in the range of 32-bit signed integer.
         1次Ctrl C，
         n - i- 2次Ctrl V，
     这样最终就可以生成n - i - 1个maxA(i)。
-    由于n - i - 2 >= 1，所以i <= n - 3。如果我们定义dp[i]表示i步可以生成的‘A’的最大个数，
-    则可以方便地实现基于动态规划的版本。
-
+    由于n - i - 2 >= 1，所以i <= n - 3。
+    如果我们定义dp[i]表示i步可以生成的‘A’的最大个数，
     we loop from n = 1 to N
     i from 1 to N-3
     dp[n] intitally = n, no copy paste

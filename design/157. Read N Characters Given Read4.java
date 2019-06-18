@@ -23,7 +23,6 @@ The read function will only be called once for each test case.
 
 /*
 the read() method just does two things:
-
 It returns an int to show how long the file is.
 After we pass char[] to the read() method, and the char[] is filled with characters extracted from the files by read().
 Since we cannot return multiple values, we just return an int to show the length of the file. The content of the file is stored in the char[]. The trick is we could actually visit the char[] after we use read() to get the content of the file, which does not require return statement to prevent multiple return values.

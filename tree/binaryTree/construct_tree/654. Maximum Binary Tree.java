@@ -29,21 +29,6 @@ The size of the given array will be in the range [1,1000].
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
- 
- 
- for (int i = 0; i < nums.size(); ++i)
-        {
-            TreeNode* cur = new TreeNode(nums[i]);
-            while (!stk.empty() && stk.back()->val < nums[i])
-            {
-                cur->left = stk.back();
-                stk.pop_back();
-            }
-            if (!stk.empty())
-                stk.back()->right = cur;
-            stk.push_back(cur);
-        }
-        return stk.front();
         
         [3,2,1,6,0,5]
         i=0 cur= TreeNode(3)  st= [(3)]
@@ -77,4 +62,24 @@ class Solution {
       }
       return st.firstElement();
   }
+}
+
+class Solution {
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        return build(nums, 0, nums.length-1);
+    }
+    TreeNode build(int[] nums, int s, int e) {
+        if(s > e) return null;
+        int index= s, max= nums[index];
+        for(int i=s+1; i<=e; i++) {
+            if(max < nums[i]) {
+                max = nums[i];
+                index = i;
+            }
+        }
+        TreeNode root = new TreeNode(max);
+        root.left = build(nums, s, index-1);
+        root.right = build(nums, index+1, e);
+        return root;
+    }
 }

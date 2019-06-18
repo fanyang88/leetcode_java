@@ -70,7 +70,6 @@ class Solution {
               }
           }
       }
-      
       for(int j=1; j<n; j++) {
           // scan col by col, if the first element is 0, the whole col should be 0
           if(matrix[0][j] ==0) {

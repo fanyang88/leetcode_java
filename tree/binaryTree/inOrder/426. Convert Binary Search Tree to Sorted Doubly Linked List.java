@@ -42,7 +42,7 @@ iteratively
 
 st=[4,2,1]
     since 1.left=null, pop 1 first = 1 first.right = last last=1  
-    since 1 has no right, pop 2, root=2 last =1 last.right=2 2.left=last last = 2 1->2
+    since 1 has no right, pop 2, cur=2 last =1 last.right=2 2.left=last last = 2 1->2
     
     in the end, we need to connect first and last
     
@@ -71,4 +71,29 @@ class Solution {
       last.right = first;
       return first;
   }
+}
+
+
+// recursive
+class Solution {
+    Node pre;
+    public Node treeToDoublyList(Node root) {
+        if(root == null) return null;
+        Node dummy = new Node(-1, null, null); // dummy head
+        pre  = dummy;
+        dfs(root);
+        // pre point to the tail, dummy.right is head, connect them
+        pre.right = dummy.right;
+        dummy.right.left = pre;
+        return dummy.right;
+    }
+    
+    void dfs(Node root) {
+        if(root == null)  return;
+        dfs(root.left);
+        pre.right = root;
+        root.left = pre;
+        pre = root;
+        dfs(root.right);
+    }
 }

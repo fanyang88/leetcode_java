@@ -28,7 +28,7 @@ Output: "ZY"
 
 /*
    28:
-   n--=27 27%26=1 res+=B next=27/26=1
+   n--=27 27%26=1 res+=B n=27/26=1
    n=--=0 0%26=0 res=A+B=AB
 */
 class Solution {

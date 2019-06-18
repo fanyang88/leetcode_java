@@ -1,7 +1,6 @@
 /**
  Given a string, we can "shift" each of its letter to its successive letter, 
  for example: "abc" -> "bcd". We can keep "shifting" which forms the sequence:
-
 "abc" -> "bcd" -> ... -> "xyz"
 Given a list of strings which contains only lowercase alphabets, 
 group all strings that belong to the same shifting sequence.
@@ -28,9 +27,7 @@ class Solution {
       HashMap<String, List<String>> map = new HashMap<String, List<String>>();
       for(String s: strings) {
           String key = getKey(s);
-          if(!map.containsKey(key)) {
-              map.put(key, new ArrayList<String>());
-          }
+          if(!map.containsKey(key)) map.put(key, new ArrayList<String>());
           map.get(key).add(s);
       }
       for(String key: map.keySet()) {

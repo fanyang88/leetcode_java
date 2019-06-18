@@ -24,8 +24,8 @@ The length of the input is in range of [1, 10000]
 
 /*
         I used a greedy algorithm.
-leftis a hashmap, left[i] counts the number of i that I haven't placed yet.
-endis a hashmap, end[i] counts the number of consecutive subsequences that ends at number i
+left is a hashmap, left[i] counts the number of i that I haven't placed yet.
+end is a hashmap, end[i] counts the number of consecutive subsequences that ends at number i
 Then I tried to split the nums one by one.
     If I could neither add a number to the end of a existing consecutive subsequence 
     nor find two following number in the left, I returned False
@@ -48,8 +48,8 @@ Then I tried to split the nums one by one.
 class Solution {
   public boolean isPossible(int[] nums) {
       Map<Integer, Integer> left = new HashMap<>();
-      for(int n : nums) left.put(n, left.getOrDefault(n, 0)+1);
       Map<Integer, Integer> end = new HashMap<>();
+      for(int n : nums) left.put(n, left.getOrDefault(n, 0)+1);
       
       for(int n: nums) {
           if(left.get(n)==0)  continue;

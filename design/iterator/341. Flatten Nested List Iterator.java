@@ -1,6 +1,5 @@
 /*
 Given a nested list of integers, implement an iterator to flatten it.
-
 Each element is either an integer, or a list -- whose elements may also be integers or other lists.
 
 Example 1:
@@ -47,7 +46,6 @@ Explanation: By calling next repeatedly until hasNext returns false,
  
  */
 public class NestedIterator implements Iterator<Integer> {
-
   Stack<NestedInteger> st;
   public NestedIterator(List<NestedInteger> nestedList) {
       st = new Stack<>();

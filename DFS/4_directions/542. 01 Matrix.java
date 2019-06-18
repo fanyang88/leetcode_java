@@ -31,7 +31,7 @@ The cells are adjacent in only four directions: up, down, left and right.
 
 /*
         DFS
-        change all element which equal 1 but no 0 surrounded to be max_value
+ change all element which equal 1 but no 0 surrounded to be max_value
  0 0 0 
  0 1 0
  1 max 1

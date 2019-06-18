@@ -27,7 +27,9 @@ Output: "0.(6)"
     since 2%3 !=0 res=res+'.'
     r= 2%3=2  map[2]=res.length=2 r=20 res+=20/3=6 r=r%d=2 
               since map[2] exist, we need to add () from 2 to the end, return res
-    
+    e.g: 1.4123123...
+           34567
+    we need to substring 4~7 which is 123 and put in bracket
 */
 
 class Solution {

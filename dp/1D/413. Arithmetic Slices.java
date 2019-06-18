@@ -27,9 +27,9 @@ return: 3, for 3 arithmetic slices in A: [1, 2, 3], [2, 3, 4] and [1, 2, 3, 4] i
 
 /*
         e.g: [1,2,3,4,6] 
-        dp[2] = 1  since 1,2,3 is one slice
-        since 4-3=3-2 dp[3] = dp[2]+1 since we have (1,2, 3) + (2,3,4) 
-        since 4-4!=4-3 no count
+        i=1 since 1,2,3 is one slice dp[1] = 1  
+        i=2 since 4-3=3-2 dp[2] = dp[1]+1 since we have (1,2, 3) + (2,3,4) 
+        i=3 since 6-4!=4-3 not count
         but since (1,2,3,4) is also one, sum of all dp is the answer
         
 */
@@ -38,16 +38,14 @@ class Solution {
   public int numberOfArithmeticSlices(int[] A) {
       int n = A.length;
       if(n < 3)  return 0;
-      int[] dp = new int[n];
-      if(A[1] - A[0] == A[2] - A[1]) dp[2]=1;
-      int sum = dp[2];
-      
-      for(int i=3; i<n; i++) {
-          if(A[i] - A[i-1] == A[i-1] - A[i-2])  {
-              dp[i] = dp[i-1]+1;
-              sum += dp[i];
-          }
-      }
-      return sum;
+        int[] dp = new int[n];
+        if(A[1] - A[0] == A[2] - A[1]) dp[2]=1;
+        for(int i=3; i<n; i++) {
+            if(A[i] - A[i-1] == A[i-1] - A[i-2])  {
+                dp[i] = dp[i-1]+1;
+            }
+        }
+        for(int i=0; i<n; i++) sum += dp[i];
+        return sum;
   }
 }

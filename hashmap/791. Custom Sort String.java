@@ -41,9 +41,8 @@ class Solution {
   public String customSortString(String S, String T) {
       int[] map = new int[26];
       String res = "";
-      for(char c : T.toCharArray()) {
-          map[c - 'a'] ++;
-      }
+      for(char c : T.toCharArray())  map[c - 'a'] ++;
+
       for(char c : S.toCharArray()) {
           while(map[c- 'a'] > 0) {
               res += c;

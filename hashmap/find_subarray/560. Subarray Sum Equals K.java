@@ -10,8 +10,8 @@ The range of numbers in the array is [-1000, 1000] and the range of the integer 
 */
 
 /*
-        [1,1,1] -> [1,2,3]
-        since map[0]= -1
+        [1,1,1] -> [1,2,3]  k = 2
+        since map[0]= 1
         i=0 since map[1-k]not exist do nothing map[1] =0  
         i=1 since map[0] exist find an subarray 2-0  map[2] = 1 
         i=2 since map[3-2] = map[1] exist find another subarray map[3] =2 

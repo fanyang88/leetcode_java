@@ -41,12 +41,11 @@ class Solution {
           return true;
       }
       
-      int cur = nums[index];
       for(int i=0; i<k; i++) {
-          if(sums[i] + cur > target) continue;  // pruning
-          sums[i] += cur;
+          if(sums[i] + nums[index] > target) continue;  // pruning
+          sums[i] += nums[index];
           if(dfs(index+1, sums, nums, target, k)) return true;
-          sums[i] -= cur;
+          sums[i] -= nums[index];
       }
       return false;
   }

@@ -46,42 +46,52 @@ AACCGGTA: distance 1: AACCGCTA, AAACGGTA
 use BFS, similar to word ladder
 
 */
+/*
+        start: "AACCGGTT"
+end:   "AAACGGTA"
+bank: ["AACCGGTA", "AACCGCTA", "AAACGGTA"]
+
+return: 2
+AACCGGTT: distance 1: AACCGGTA
+AACCGGTA: distance 1: AACCGCTA, AAACGGTA
+
+use BFS, similar to word ladder
+
+*/
 
 class Solution {
-  public int minMutation(String start, String end, String[] bank) {
-      int level=0;
-      Set<String> unvisit  = new HashSet<>();
-      for(String s: bank) unvisit.add(s);
-      unvisit.remove(start);
-      Queue<String> q = new LinkedList<>();
-      q.offer(start);
-      while(!q.isEmpty()) {
-          int size = q.size();
-          for(int i=0; i<size; i++) {
-              String cur = q.poll();
-              if(cur.equals(end)) return level;
-              
-              for(String next: getNext(cur, unvisit)) {
-                  if(!unvisit.contains(next))  continue; // This is the key
-                  q.offer(next);
-                  unvisit.remove(next);
-              }
-          }
-          level++;
-      }
-      return -1;
-  }
-  
-  public List<String> getNext(String cur, Set<String> set) {
-      List<String> res = new ArrayList<String>();
-      char[] chars= {'A', 'C', 'G', 'T'};
-      for(int i=0; i<cur.length(); i++) {
-          for(char c: chars) {
-              if(c == cur.charAt(i))  continue;
-              String str = cur.substring(0, i) + c + cur.substring(i+1);
-              if(set.contains(str)) res.add(str);
-          }
-      }
-      return res;
-  }
+    public int minMutation(String start, String end, String[] bank) {
+        int level=0;
+        Set<String> unvisit  = new HashSet<>();
+        for(String s: bank) unvisit.add(s);
+        unvisit.remove(start);
+        Queue<String> q = new LinkedList<>();
+        q.offer(start);
+        while(!q.isEmpty()) {
+            int size = q.size();
+            for(int i=0; i<size; i++) {
+                String cur = q.poll();
+                if(cur.equals(end)) return level;
+                for(String next: getNext(cur, unvisit)) {
+                    q.offer(next);
+                    unvisit.remove(next);
+                }
+            }
+            level++;
+        }
+        return -1;
+    }
+    
+    public List<String> getNext(String cur, Set<String> unvisit) {
+        List<String> res = new ArrayList<String>();
+        char[] chars= {'A', 'C', 'G', 'T'};
+        for(int i=0; i<cur.length(); i++) {
+            for(char c: chars) {
+                if(c == cur.charAt(i))  continue;
+                String str = cur.substring(0, i) + c + cur.substring(i+1);
+                if(unvisit.contains(str)) res.add(str);
+            }
+        }
+        return res;
+    }
 }

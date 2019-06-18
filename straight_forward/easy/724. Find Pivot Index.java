@@ -39,7 +39,6 @@ class Solution {
       for(int i=0; i<nums.length; i++) {
           if(i!=0)  left = left + nums[i-1];
           if(nums[i] + left * 2 == total)  return i;
-          
       }
       return -1;
   }

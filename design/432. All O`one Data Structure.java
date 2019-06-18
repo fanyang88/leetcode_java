@@ -48,8 +48,7 @@ row2: val = 2, strs = {"C"}
 class ListNode {
   int val;
   Set<String> set;
-  ListNode next;
-  ListNode prev;
+  ListNode next, prev;
   ListNode(int val) {
       this.val = val;
       set = new HashSet<>();
@@ -60,9 +59,7 @@ class ListNode {
 
 class AllOne {
   Map<String, ListNode> map;
-  ListNode head;
-  ListNode tail;
-  /** Initialize your data structure here. */
+  ListNode head, tail;
   public AllOne() {
       map = new HashMap<>();
       head = new ListNode(Integer.MIN_VALUE);

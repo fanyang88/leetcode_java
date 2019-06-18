@@ -16,8 +16,8 @@ n does not exceed 1690.
  */
 
  /*
-dp[0] = 1
- i=1: i2=0, i3=0, i5=0  min = dp[i2]*2=2=dp[1] i2++=1
+ dp[0] = 1
+ i=1: i2=0, i3=0, i5=0 min = dp[i2]*2=2=dp[1] i2++=1
  i=2: i2=1, i3=0, i5=0 min = dp[i3]*3=3=dp[2] i3++=1
  i=3: i2=1, i3=1, i5=0 min = dp[i2]*2=4=dp[3] i2++=2
  i=4: i2=2, i3=1, i5=0 min = dp[i5]*5=5=dp[4] i5++=1

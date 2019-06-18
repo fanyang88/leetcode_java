@@ -1,7 +1,9 @@
 /*
-Your are given an array of integers prices, for which the i-th element is the price of a given stock on day i; and a non-negative integer fee representing a transaction fee.
+Your are given an array of integers prices, for which the i-th element is the price of a given stock on day i; 
+and a non-negative integer fee representing a transaction fee.
 
-You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction. You may not buy more than 1 share of a stock at a time (ie. you must sell the stock share before you buy again.)
+You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction. 
+You may not buy more than 1 share of a stock at a time (ie. you must sell the stock share before you buy again.)
 
 Return the maximum profit you can make.
 
@@ -25,9 +27,10 @@ Note:
 /*
     sold[i]表示第i天卖掉股票此时的最大利润，
     hold[i]表示第i天保留手里的股票此时的最大利润。
-    
-    在第i天，如果我们要卖掉手中的股票，那么此时我们的总利润应该是前一天手里有股票的利润(不然没股票卖毛啊)，加上此时的卖出价格，减去交易费得到的利润总值，跟前一天卖出的利润相比，取其中较大值，如果前一天卖出的利润较大，那么我们就前一天卖了，不留到今天了。
-    然后来看如果第i天不卖的利润，就是昨天股票卖了的利润然后今天再买入股票，得减去今天的价格，得到的值和昨天股票保留时的利润相比，取其中的较大值，如果昨天保留股票的利润大，那么我们就继续保留到今天，所以递推时可以得到：
+    在第i天，如果我们要卖掉手中的股票，那么此时我们的总利润应该是前一天手里有股票的利润，加上此时的卖出价格，减去交易费得到的利润总值，
+    跟前一天卖出的利润相比，取其中较大值，如果前一天卖出的利润较大，那么我们就前一天卖了，不留到今天了。
+    然后来看如果第i天不卖的利润，就是昨天股票卖了的利润然后今天再买入股票，得减去今天的价格，得到的值和昨天股票保留时的利润相比，取其中的较大值，
+    如果昨天保留股票的利润大，那么我们就继续保留到今天，所以递推时可以得到：
 
 sold[i] = max(sold[i - 1], hold[i - 1] + prices[i] - fee);
 

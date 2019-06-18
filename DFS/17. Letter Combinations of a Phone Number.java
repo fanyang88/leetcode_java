@@ -18,14 +18,14 @@ class Solution {
       return res;
   }
   
-  public void dfs(int level, String digits, String cur, List<String> res) {
-      if(level == digits.length()) {
+  public void dfs(int index, String digits, String cur, List<String> res) {
+      if(index == digits.length()) {
           res.add(cur);
           return;
       }
-      String letters =KEYS[digits.charAt(level) - '0'];
+      String letters =KEYS[digits.charAt(index) - '0'];
       for(int i=0; i<letters.length(); i++) {
-          dfs(level+1, digits, cur+letters.charAt(i), res);
+          dfs(index+1, digits, cur+letters.charAt(i), res);
       }
   }
 }

@@ -19,8 +19,6 @@ minStack.getMin();   --> Returns -2.
 class MinStack {
 
   Stack<Integer> st, minSt;
-  
-  /** initialize your data structure here. */
   public MinStack() {
       st = new Stack<>();
       minSt = new Stack<>();

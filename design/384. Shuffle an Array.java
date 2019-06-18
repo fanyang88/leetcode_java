@@ -30,6 +30,14 @@ solution.shuffle();
   arr[2] swap wither either arr[0] or arr[1] or stay the same
   ....
   
+  [1,2,3]
+  i=0 probability of 1 swap with 1 is 1
+  i=1 probability of 2 swap with 1 is 1/2 + swap with 2 is 1/2
+  i=2 probability of 3 swap with 1 is 1/3 + swap with 2 is 1/3 + swap with itself 1/3
+
+  1*(2*1/2)*(1*3*1/3)=1
+ (1*1/2*1/3 + 1*1/2*1/3 + 1*1/2*1/3) + (1*1/2*1/3 + 1*1/2*1/3 + 1*1/2*1/3)
+ = 1/6*6=1
 */
 
 class Solution {

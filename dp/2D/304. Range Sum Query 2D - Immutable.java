@@ -25,17 +25,11 @@ You may assume that row1 ≤ row2 and col1 ≤ col2.
 
 /*
  use Sum Table:
-e.g: matrix=
-2  5  4  1
-3  6  1  2
-4  0  7  1
-2  3  2  6
-sumtable:
-2  7  11  12
-5  16 21  24
-9  20 32  36
-11 25 39  49
-
+e.g: matrix=        sumtable:
+2  5  4  1          2  5  4  1          
+3  6  1  2   ->     5  16 21  24
+4  0  7  1          9  20 32  36
+2  3  2  6          11 25 39  49
 dp[i][j]= dp[i-1][j]+dp[i][j-1]+matrix[i][j]- dp[i-1][j-1];
 
 get sum from (row1, col1)- (row2, col2)

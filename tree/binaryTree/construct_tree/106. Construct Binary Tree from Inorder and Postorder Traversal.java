@@ -27,9 +27,11 @@ Return the following binary tree:
  * }
  
  inorder = [9,3,15,20,7]
-postorder = [9,15,7,20,3]
-    root=3
-    
+postorder = [9,15,7,20,3], index=1 inorder-> [0,1]&[2, end] post->[0,1]&[1,end-1]
+             root=3
+  po:[9]     /    \   po:[15,7,20]
+  in:[9]     9     20 in: [15,20,7], use 20 split to 15 & 7, index=1
+                  /  \
  */
 class Solution {
   public TreeNode buildTree(int[] inorder, int[] postorder) {

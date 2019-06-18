@@ -59,7 +59,7 @@ class Solution {
       if(map.containsKey(state)) return map.get(state);
       for(int i=1; i<=maxChoosableInteger; i++) {
           if((state & (1 << i)) > 0) continue; // i is visited
-          if(!dfs(map, (state | (1 << i)), maxChoosableInteger, curTotal - i)) { // if player is lose
+          if(!dfs(map, (state | (1 << i)), maxChoosableInteger, curTotal - i)) { // if player 2 is lose
               map.put(state, true);
               return true;
           }

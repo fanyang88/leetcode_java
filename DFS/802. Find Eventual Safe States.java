@@ -41,7 +41,7 @@ Each graph[i] will be a sorted list of different integers, chosen within the ran
         we can use a inCycle[] to denote each node, 
         inCycle==0 means unvisited
         inCycle =1 means in a cycle
-        inCycle =1 means not in a cycle
+        inCycle =-1 means not in a cycle
         
         start from 0, since inCycle[0] = 0 unvisited, we set it as 1 first
         then dfs to each node

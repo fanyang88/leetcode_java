@@ -22,14 +22,13 @@ Explanation: Paint house 0 into color 0, paint house 1 into color 2. Minimum cos
 
  /*
     [1,5,3], 
-    [2,9,4]]  [5,1,5]]
-    
+    [2,9,4]]  
+    [5,1,5]]
     create a matrix to record the min
     [1,5,3] min1=1 min2=3
     at[0]  since 1=min1 take min2 
     at[1]  since 5!=min1 take min1 
     at[2]  since 4 =min2 position, take min1
-    
     so we need to get the min1, min2 value for i-1th row
     to cacalute the ith row,
         if costs[i-1][j] == min1 take min2: costs[i][j] = costs[i][j] + min2

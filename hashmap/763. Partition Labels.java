@@ -20,7 +20,7 @@ S will consist of lowercase letters ('a' to 'z') only.
      once count = 0, start a new partition
           012345678
      e.g: ababcbacadefegde
-     a=4 b=3 c=2
+     a=4 b=3 c=2 ...
      i=0 set doesn't have a , set add a count++=1 map[a]--=3
      i=1 set doesn't have b , set add b count++=2 map[b]--=2
      i=2 set has a, map[a]--=2
@@ -50,7 +50,7 @@ class Solution {
           if(map[c- 'a']==0)  count--;
           if(count==0) {
               res.add(i-j+1);
-              j=i+1;
+              j=i+1; // j is the previous split pos
           }
       }
       return res;

@@ -29,13 +29,10 @@ Note: If there are several possible values for h, the maximum one is taken as th
 class Solution {
   public int hIndex(int[] citations) {
       int maxV = 0, sum=0;
-      for(int cite : citations) {
-          maxV = Math.max(cite, maxV);
-      }
+      for(int cite : citations) maxV = Math.max(cite, maxV);
+      
       int[] bucket = new int[maxV+1];
-      for(int cite : citations) {
-          bucket[cite] ++;
-      }
+      for(int cite : citations)  bucket[cite] ++;
       
       for(int i=maxV; i>=0; i--) {
           sum += bucket[i];

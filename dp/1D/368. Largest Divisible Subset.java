@@ -26,12 +26,12 @@ Output: [1,2,4,8]
  --------------------------
 pre :| 0 | 1 | 2 | 3 | 4 |
 
-i=1, j=0  since A[i] % A[j] ===0 since dp[j]+1 > dp[i] dp[i] = dp[j]+1=2  pre = j=0
-i=2, j=0  since A[2] % A[0] ===0 since dp[0]+1 > dp[2] dp[2] = dp[0]+1=2  pre = j=0
-     j=1  since A[2] % A[1] ===0 since dp[1]+1 > dp[2] dp[2] = dp[1]+1=3  pre = j=1
-i=3, j=0  since A[3] % A[0] ===0 since dp[0]+1 > dp[3] dp[3] = dp[0]+1=2  pre = j=0
-     j=1  since A[3] % A[1] ===0 since dp[1]+1 > dp[3] dp[3] = dp[1]+1=3  pre = j=1
-     j=2  since A[3] % A[2] ===0 since dp[2]+1 > dp[3] dp[3] = dp[2]+1=4  pre = j=2
+i=1, j=0  since A[i] % A[j] ===0 since dp[j]+1 > dp[i] dp[i] = dp[j]+1=2  pre[1]=0
+i=2, j=0  since A[2] % A[0] ===0 since dp[0]+1 > dp[2] dp[2] = dp[0]+1=2  pre[2]=0
+     j=1  since A[2] % A[1] ===0 since dp[1]+1 > dp[2] dp[2] = dp[1]+1=3  pre[2]=1
+i=3, j=0  since A[3] % A[0] ===0 since dp[0]+1 > dp[3] dp[3] = dp[0]+1=2  pre[3]=0
+     j=1  since A[3] % A[1] ===0 since dp[1]+1 > dp[3] dp[3] = dp[1]+1=3  pre[3]=1
+     j=2  since A[3] % A[2] ===0 since dp[2]+1 > dp[3] dp[3] = dp[2]+1=4  pre[3]=2
      
      
 finaly we have filled the array as such:

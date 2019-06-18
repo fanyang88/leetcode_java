@@ -1,7 +1,6 @@
 /*
-Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.
-
-Note: The input string may contain letters other than the parentheses ( and ).
+Remove the minimum number of invalid parentheses in order to make the input string valid. 
+Return all possible results. The input string may contain letters other than the parentheses ( and ).
 
 Example 1:
 
@@ -39,7 +38,6 @@ class Solution {
       
       visited.add(s);
       q.add(s);
-      
       while(!q.isEmpty()) {
           s = q.poll();
           if(isValid(s)) {

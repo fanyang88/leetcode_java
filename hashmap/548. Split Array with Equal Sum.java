@@ -21,7 +21,9 @@ Elements in the given array will be in range [-1,000,000, 1,000,000].
 
 /*
     Here j is used for middle cut, i for left cut and k for right cut.
-Iterate middle cuts and then find left cuts which divides the first half into two equal quarters, store that quarter sums in the hashset. Then find right cuts which divides the second half into two equal quarters and check if quarter sum is present in the hashset. If yes return true.
+Iterate middle cuts and then find left cuts which divides the first half into two equal quarters, 
+store that quarter sums in the hashset. Then find right cuts which divides the second half into two equal quarters 
+and check if quarter sum is present in the hashset. If yes return true.
 
     the key is sum[i~j] = sum[j] - sum[i-1]
     

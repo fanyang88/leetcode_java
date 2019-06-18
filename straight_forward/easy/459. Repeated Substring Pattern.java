@@ -21,8 +21,6 @@ Explanation: It's the substring "abc" four times. (And the substring "abcabc" tw
 
 /*
          e.g: ababab
-         aaaaaaaa
-         
          sub = aba
          since sub+sub!=s  sub--=ab
          since sub+sub+sub ==s return true

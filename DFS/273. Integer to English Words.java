@@ -24,18 +24,16 @@ Output: "One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Th
 divide a number into four parts: 
           1,234,567,891
         XXX,XXX,XXX,XXX
-    count = 0, num % 1000 = 891 getnumber(891), num = num/1000=1234567
-    count = 1, num % 1000 = 567 getnumber(567), num = num/1000=1234
-    count = 2, num % 1000 = 234 getnumber(234), num = num/1000=1
-    count = 3, num % 1000 = 1 getnumber(1), num = num/1000=0
+    count = 0, num % 1000 = 891 getnumber(891)->"...", num = num/1000=1234567
+    count = 1, num % 1000 = 567 getnumber(567)->"... +thousand", num = num/1000=1234
+    count = 2, num % 1000 = 234 getnumber(234)-> "...Million", num = num/1000=1
+    count = 3, num % 1000 = 1 getnumber(1)->"...billion", num = num/1000=0
         
 */
 class Solution {
-  private final String[] LESS_THAN_20 = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+private final String[] LESS_THAN_20 = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
 private final String[] TENS = {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 private final String[] THOUSANDS = {"", " Thousand ", " Million ", " Billion "};
-
-  
   public String numberToWords(int num) {
       int i=0;
       if(num==0)  return "Zero";

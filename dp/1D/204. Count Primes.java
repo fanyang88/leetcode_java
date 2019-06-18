@@ -15,7 +15,6 @@ when i=2 since [2]==F count++
 when i=3 since [3]==F count++
      loop j=2 make[6]=T [9]=T 
 when i=4 since [4]==T 
-     
 when i=5 since [5]==F count++
      loop j=2 make[10]=T 
 when i=6 since [6]==T

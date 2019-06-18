@@ -1,5 +1,6 @@
 /*
-Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
+Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. 
+Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
 
 Example 1:
 Input: [3, 1, 4, 1, 5], k = 2
@@ -23,19 +24,18 @@ All the integers in the given input belong to the range: [-1e7, 1e7].
 
 /*
   [3, 1, 4, 1, 5]
-  map[3] = 1
+  map[3] = 1(freq)
   map[1] = 2
   map[4]=1
   map[5]=1
   
   for key in map
   since map[3+2]=map[5] exist count++
-  since map[1+2]=map[3] exist count__;
-  since map[4+2] not exist, contire
-  since map[5+2] not exist, do nothing
+  since map[1+2]=map[3] exist count++;
+  since map[4+2] not exist, continue
+  since map[5+2] not exist, continue
   
-  special case, when k=0
-  in above case, count=1
+  special case, when k=0, we check if map.get(key)>=2
 
 */
 
@@ -43,9 +43,8 @@ class Solution {
   public int findPairs(int[] nums, int k) {
       Map<Integer, Integer> map = new HashMap<>();
       int count=0;
-      for(int num: nums) {
-          map.put(num, map.getOrDefault(num, 0) +1);
-      }
+      for(int num: nums) map.put(num, map.getOrDefault(num, 0) +1);
+    
       for(int key: map.keySet()) {
           if(k==0 && map.get(key) >=2) {
               count++;

@@ -20,13 +20,12 @@ Note:
 
 /*
     use BFS, we can't go to same bus, also can't go to the same bus station
-    
      we need to construct a map to show current stop to next stops
  e.g: [[1, 2, 7], [3, 6, 7]]
  we need to construct a map with key is the stop and value is the buses can reach to this stop
  map  1: [0]  2: [0] 7: [0, 1] 3: [1]  6: [1]
  use BFS, start at S=1
-    stopVisited = [1]
+    visited = [1]
     Q=[1]  pop Q, curStop=1, 1 is from bus 0, we add bus 0 to be visited
     for each stop of bus 0, to push to Q, Q=[2,7] since 1 has visited
     step++=1
@@ -36,7 +35,6 @@ Note:
     step++;
     Q=[3,6] pop Q, curStop=3, 3 is from bus 1, bus 1 has visited, do nothing
             pop Q, curStop=6= T, return step
- 
    we need two sets, one to record which stops is visited, the other to record which bus is visited.
     
 

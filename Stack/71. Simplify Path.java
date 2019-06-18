@@ -38,8 +38,7 @@ class Solution {
   public String simplifyPath(String path) {
       Stack<String> st = new Stack<String>();
       StringBuilder sb = new StringBuilder();
-      String[] parts = path.split("/");
-      for(String e : parts) {
+      for(String e : path.split("/")) {
           if(e.length() == 0 || e.equals(".")) continue;
           if(e.equals("..")) {
               if(!st.isEmpty()) st.pop();

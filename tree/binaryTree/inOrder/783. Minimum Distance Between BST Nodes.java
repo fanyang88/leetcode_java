@@ -43,9 +43,7 @@ class Solution {
   public void dfs(TreeNode root) {
       if(root==null)  return;
       dfs(root.left);
-     if(prev!=null) {
-          res = Math.min(res, Math.abs(prev.val - root.val));
-      }
+     if(prev!=null) res = Math.min(res, Math.abs(prev.val - root.val));
       prev = root;
       dfs(root.right);
   }

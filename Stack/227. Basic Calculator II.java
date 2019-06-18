@@ -24,6 +24,12 @@ Do not use the eval built-in library function.
  */
 
  /*
+  3/2
+  i=0 num=3
+  i=1 curSign=+, push 3 to st: st=[3] num=0, cursign = /
+  i=2 num=2
+  last one: st pop 3, st push 3/2, 
+  
   3+5/2
   i=0 num=3 
   i=1 st=[+3] num=0 sign='+'

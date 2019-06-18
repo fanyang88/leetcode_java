@@ -67,17 +67,14 @@ class Solution {
               }
           }
       }
-      if(isLeaf) {
+      if(isLeaf) 
           return new Node(val ==1, isLeaf, null, null, null, null);
-      } else {
-          int mr = (r1+r2)/2;
-          int mc = (c1+c2)/2;
-          return new Node(false, false, 
-                         build(r1, c1, mr, mc, grid),   // top-left
-                         build(r1, mc+1, mr, c2, grid),  // top-right
-                         build(mr+1, c1, r2, mc, grid),  // bottom-left
-                         build(mr+1, mc+1, r2, c2, grid));  // bottom-right
-      }
-      
+    int mr = (r1+r2)/2;
+    int mc = (c1+c2)/2;
+    return new Node(false, false, 
+            build(r1, c1, mr, mc, grid),   // top-left
+            build(r1, mc+1, mr, c2, grid),  // top-right
+            build(mr+1, c1, r2, mc, grid),  // bottom-left
+            build(mr+1, mc+1, r2, c2, grid));  // bottom-right
   }
 }

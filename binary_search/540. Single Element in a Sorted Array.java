@@ -13,7 +13,7 @@ Output: 10
     binary search:
     len must be odd
     
-    [3,3,7,7,10,11,11]  len=7   0~mid is even, if nums[mid] == nums[mid-1] means the odd is at right
+    [3,3,7,7,10,11,11]  len=7     0~mid is even, if nums[mid] == nums[mid-1] means the odd is at right
     [3,7,7,10, 10,11,11]          if nums[mid] != nums[mid-1] means the odd is at left
     
     

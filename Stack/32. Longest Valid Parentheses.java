@@ -43,8 +43,7 @@ class Solution {
       Stack<Integer> st= new Stack<Integer>();
       int n = s.length(), res=0;
       for(int i=0; i<n; i++) {
-          if(s.charAt(i) == ')' && !st.isEmpty() && 
-             s.charAt(st.peek()) == '(') {
+          if(s.charAt(i) == ')' && !st.isEmpty() && s.charAt(st.peek()) == '(') {
               st.pop();
           } else {
               st.push(i);

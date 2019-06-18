@@ -18,7 +18,6 @@ class Solution {
       int n = nums.length;
       if(n==0)  return res;
       int lower = nums[0], next= nums[0];
-      
       for(int i=1; i<n; i++) {
           if(nums[i]== next+1) {
               next++;

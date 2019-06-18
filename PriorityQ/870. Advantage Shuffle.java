@@ -50,9 +50,8 @@ class Solution {
       Arrays.sort(A);
       PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> (b[0] - a[0]));
       int[] res = new int[A.length];
-      for(int i=0, j=0; i<B.length; i++) {
-          pq.offer(new int[]{B[i], i});
-      }
+      for(int i=0, j=0; i<B.length; i++)  pq.offer(new int[]{B[i], i});
+        
       while(!pq.isEmpty()) {
           int[] cur = pq.poll();
           if(A[hi] > cur[0]) {

@@ -1,5 +1,5 @@
 /*
-Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10n.
+Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10^n.
 
 Example:
 
@@ -10,10 +10,10 @@ Explanation: The answer should be the total numbers in the range of 0 ≤ x < 10
 */
 
 /*
-  n=1 dp[1]=10
-  n=2 dp[2]=9*9 + dp[1]=91  tens digit canve 1~9 last digit can be 0~9 exclude ten's one=9
-  n=3 dp[3]=9*9*8 + dp[2]
-  n=4 dp[4]=9*9*8*7 + dp[3]
+  n=1 nums in [0~9] dp[1]=10
+  n=2 nums in [0~99]dp[2]=9*9 + dp[1]=91  tens digit can be 1~9 last digit can be 0~9 exclude ten's number
+  n=3 nums in [0~999] dp[3]=9*9*8 + dp[2]
+  n=4 nums in [0~9999] dp[4]=9*9*8*7 + dp[3]
   ....
   
 */
@@ -24,7 +24,6 @@ class Solution {
       int[] dp=new int[n+1];
       dp[1]=10;
       int sum=81, count=8;
-      
       for(int i=2; i<=n; i++) {
           dp[i] = dp[i-1] + sum;
           sum = sum*count;

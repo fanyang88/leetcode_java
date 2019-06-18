@@ -72,7 +72,6 @@ class Solution {
           }
           for(int i=lastRow; i>=0; i--) board[i][j]=0;
       }
-      
       return candyCrush(board);
   }
 }

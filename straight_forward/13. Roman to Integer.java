@@ -50,7 +50,7 @@ Input:	"DCXXI"
 Expected:	621
 
 if  current char <= previous char e.g: VI  XII  
-value= current number
+value += current number
 else e.g IV, IX 
 value= current number - previous number
 since already add previous number once, we have to deduct it again 
@@ -63,6 +63,7 @@ class Solution {
           if(value(s.charAt(i)) <= value(s.charAt(i-1))) {
               res += value(s.charAt(i));
           } else {
+              // IV, when I, res=I, res+V - I -I = 4
               res = res + value(s.charAt(i)) - value(s.charAt(i-1)) - value(s.charAt(i-1));
           }
       }
@@ -70,8 +71,7 @@ class Solution {
   }
   
   public int value(char c) {
-      switch(c)
-      {
+      switch(c) {
           case 'I': return 1;  
           case 'V': return 5;  
           case 'X': return 10;  

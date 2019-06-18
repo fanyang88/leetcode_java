@@ -31,13 +31,10 @@ Note that an empty tree is represented by NULL, therefore you would see the expe
  * }
  */
 class Solution {
-  public TreeNode searchBST(TreeNode root, int val) {
-      if(root ==null) return null;
-      if(root.val == val) return root;
-      TreeNode left = searchBST(root.left, val);
-      TreeNode right = searchBST(root.right, val);
-      
-      if(left ==null && right==null)  return null;
-      return left != null ? left : right;
-  }
+    public TreeNode searchBST(TreeNode root, int val) {
+        if(root ==null) return null;
+        if(root.val == val) return root;
+        if(root.val < val) return searchBST(root.right, val);
+        return searchBST(root.left, val);
+    }
 }

@@ -43,9 +43,7 @@ All characters in words[i] and order are english lowercase letters.
 class Solution {
   public boolean isAlienSorted(String[] words, String order) {
       int[] map = new int[26];
-      for(int i=0; i<order.length(); i++) {
-          map[order.charAt(i)- 'a'] = i+1;
-      }
+      for(int i=0; i<order.length(); i++) map[order.charAt(i)- 'a'] = i+1;
       
       for(int i=0; i<words.length-1; i++) {
           if(compare(words[i], words[i+1], map) > 0) return false;

@@ -30,7 +30,7 @@ It doesn't matter what values are set beyond the returned length.
 class Solution {
   public int removeDuplicates(int[] nums) {
       int n= nums.length, i=0;
-      for(int j=0; j<n; j++) {
+      for(j=0; j<n; j++) {
           if(nums[i] != nums[j]) {
               i++;
               nums[i] = nums[j];

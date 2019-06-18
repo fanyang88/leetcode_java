@@ -54,7 +54,7 @@ class Solution {
       visited.add(target);
       while(K>0) {
           int size = q.size();
-          for(int k=0; k<size; k++) {
+          for(int i=0; i<size; i++) {
               TreeNode cur = q.poll();
               if(map.get(cur)==null) continue;
               for(TreeNode next: map.get(cur)) {

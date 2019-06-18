@@ -16,7 +16,6 @@ Explanation: t is "aabbb" which its length is 5.
 
  /*
     eceba
-    
     i=0, since ch[e]==0 count++=1  chr[e]=1 
     i=1, since ch[c]==0 count++=2 chr[c]=1
     i=2, since ch[e]==1 do nothing

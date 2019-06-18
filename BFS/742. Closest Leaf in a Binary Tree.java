@@ -66,7 +66,7 @@ There exists some node in the given binary tree for which node.val == k.
  
  use example 3: construct a map:{ 1: [2, 3], 2: [1, 4], 3: [1], 4: [2, 5], 5: [4, 6], 6: [5]}
 # leaves: {3, 6}
- then perform BFS, for target 2, push [1, 4], no leave, pop 1, insert [3], 3 is a leave, return 3.
+ then perform BFS, start from next node of k, for target 2, push [1, 4], no leave, pop 1, insert [3], 3 is a leave, return 3.
  */
 class Solution {
   public int findClosestLeaf(TreeNode root, int k) {

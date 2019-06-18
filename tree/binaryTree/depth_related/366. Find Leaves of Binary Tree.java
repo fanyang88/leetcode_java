@@ -64,3 +64,31 @@ class Solution {
       return depth;
   }
 }
+
+// solution 2
+class Solution {
+    
+    // use a map to record every depth and related nodes
+    Map<Integer, List<Integer>> map = new HashMap<>();
+    int maxDepth = -1;
+    public List<List<Integer>> findLeaves(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        dfs(root);
+        for(int i=0; i<=maxDepth; i++) {
+            if(map.containsKey(i)) {
+                res.add(new ArrayList<>()); 
+                res.get(i).addAll(map.get(i));
+            }
+        }
+        return res;
+    }
+    
+    public int dfs(TreeNode root) {
+        if(root == null)  return -1;  // This is the key!!! not 0 but -1
+        int depth = 1 + Math.max(dfs(root.left), dfs(root.right));
+        if(!map.containsKey(depth)) map.put(depth, new ArrayList<>());
+        map.get(depth).add(root.val);
+        maxDepth = Math.max(maxDepth, depth);
+        return depth;
+    }
+}

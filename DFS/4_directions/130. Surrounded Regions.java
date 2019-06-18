@@ -1,5 +1,6 @@
 /**
- * Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
+ * Given a 2D board containing 'X' and 'O' (the letter O), 
+ * capture all regions surrounded by 'X'.
 
 A region is captured by flipping all 'O's into 'X's in that surrounded region.
 
@@ -50,6 +51,7 @@ class Solution {
   public void solve(char[][] board) {
       if(board.length==0)  return;
       int m = board.length, n= board[0].length;
+      // turn all 0 connected to U or on border to be U
       for(int i=0; i<m; i++) {
           dfs(board, i, 0, m, n);
           dfs(board, i, n-1, m, n);

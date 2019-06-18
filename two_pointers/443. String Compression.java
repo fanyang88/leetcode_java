@@ -74,7 +74,7 @@ class Solution {
           while(i<n && chars[i] == chars[j]) i++;
           int count = i-j;
           j=i;
-          p ++;
+          p++;
           if(count <=1)  continue;
           for(char c: (""+count).toCharArray()) {
               chars[p++] = c;

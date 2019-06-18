@@ -62,8 +62,8 @@ class Solution {
       if(prices.length==0)  return 0;
       int n = prices.length, highest = prices[n-1], lowest = prices[0];
       int[] left = new int[n], right = new int[n];
-      left[0] = 0;
-      right[n-1] = 0;
+      left[0] = 0; // on day 0 can not sell
+      right[n-1] = 0; // on last day can not buy
       // get the max at each position from left to right
       for(int i=1; i<n; i++) {
           lowest = Math.min(prices[i], lowest);

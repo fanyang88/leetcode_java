@@ -20,13 +20,13 @@ Explanation: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-
 */
 
 /*
-            /  dp[i][j-1]  carry on, do nothing on jth day
+            /  dp[i][j-1]  not sell on jth day
  dp[i][j] = 
             \  max(dp[i-1][m] + price[j] - price[m])   sell on jth day, means buy on mth day(m=0~j-1)
             
-                            0 1 2 (day)
-                            3 2 6 5 0 3
-(trancaction number)    0   0 0 0 0 0 0
+                            0 1 2 3 4 5 (day)
+     (trancaction number)   3 2 6 5 0 3
+                        0   0 0 0 0 0 0
                         1   0 0 4 4 4 4
                         2   0 0 4 4 4 7
                 

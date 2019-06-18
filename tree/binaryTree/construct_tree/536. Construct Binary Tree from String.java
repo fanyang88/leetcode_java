@@ -31,8 +31,8 @@ An empty tree is represented by "" instead of "()"
  base case:  4(2)(3)
  index = 0 root = 4 
  index=1 it is ( index++=2 root.left=2 
-       index++=4
- index=4 it is another (
+       index++=3
+ index=3 it is another (
  
  */
 class Solution {

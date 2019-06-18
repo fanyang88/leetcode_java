@@ -75,3 +75,21 @@ class Solution {
       return false;
   }
 }
+
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix.length==0 || matrix[0].length==0)  return false;
+        int m=matrix.length, n = matrix[0].length, lo=0, hi=m*n-1;
+       
+        while(lo < hi) {
+            int mid = (lo+hi)/2;
+            int midVal = matrix[mid/n][mid%n];
+            if(midVal >= target) {
+                hi= mid;
+            } else {  
+                lo = mid+1;
+            }
+        }
+        return matrix[hi/n][hi%n] == target;
+    }
+}

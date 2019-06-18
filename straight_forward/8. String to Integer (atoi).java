@@ -60,7 +60,6 @@ Explanation: The number "-91283472332" is out of the range of a 32-bit signed in
         } 
         while(i<str.length()) {
             if (!Character.isDigit(str.charAt(i)))  return (int) sum * sign;
-        
             sum = sum * 10 + str.charAt(i++) - '0';
             if(sum > Integer.MAX_VALUE && sign==1)  return Integer.MAX_VALUE;
             if((-1)*sum < Integer.MIN_VALUE && sign==-1)  return Integer.MIN_VALUE;

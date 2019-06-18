@@ -53,18 +53,14 @@ We don't consider the impact of flight hours towards the calculation of vacation
 flights = [[0,1,1],
            [1,0,1],
            [1,1,0]], 
-           
-
 days = [[1,3,1],
         [6,0,3],
         [3,3,3]]
 
 we can go from back to start, fill the last col based on days matrix first.
- 
- dp:
  *          0   1  (2)  (week 2)
  *      ----------------
- * city 0 |   | 6 | 1 |  dp[0][1]=6 since there is flight from [0][1] and [0][2] 
+ * city 0 |   | 6 | 1 |   dp[0][1]=6 since there is flight from [0][1] and [0][2] 
  *        +---+---+----   dp[0][1]= days[0][1] + max(dp[1][2], dp[2][2])  col denotes week, row denotes city
  * city 1 |   | 3 | 3 |
  *        +---+---+----
@@ -92,9 +88,9 @@ we can go from back to start, fill the last col based on days matrix first.
  the max is 12
  
  init the dp matrix last column.
- formula is dp[i][j] = days[i][j] + dp[m][j+1]   m=0~N m!=i
- if(flights[i][m] ==1)
-*/
+ if(i==m || flights[i][m] ==1)  // if it stay in same city or there is flight from curCity to next which is lastCity 
+    formula is dp[i][j] = days[i][j] + max(dp[m][j+1])   m=0~N m!=i
+ */
 
 class Solution {
   public int maxVacationDays(int[][] flights, int[][] days) {

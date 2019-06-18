@@ -1,5 +1,7 @@
 /*
-Given an array which consists of non-negative integers and an integer m, you can split the array into m non-empty continuous subarrays. Write an algorithm to minimize the largest sum among these m subarrays.
+Given an array which consists of non-negative integers and an integer m, 
+you can split the array into m non-empty continuous subarrays. 
+Write an algorithm to minimize the largest sum among these m subarrays.
 
 Note:
 If n is the length of array, assume the following constraints are satisfied:
@@ -24,19 +26,15 @@ where the largest sum among the two subarrays is only 18.
 /*
 
     Use binary search
-    assume we can divide the array into m sub arrays
-                                                                 
+    assume we can divide the array into m sub arrays                                                            
     then the largest sum of among those arrays is the range of [    max(arr),     - divide into n arrays 
                                                                     sum(arr))     - divide into 1 array
                                                                     
     Give a a candicate C  in that range, compute how many groups needed, 
-    C means each group has sum <= C
+    C means each group has sum <= C, The key is the find the largest C that makes k=m 
         if number of group k < m, means C is too larger, r = C
         if number of group k = m, means C is the potential answer, we make C
         if number of group k > m, means C is too small, l = C + 1
-        
-        The key is the find the largest C that makes k=m 
-        
         to validate, we can sum up elements till > C, split one sum another elements... if we continue dp this till the end
          e.g:  0, 1, ... | k1, k2, ... | kn-1, kn ...
                sum <=C     sum<=C .        sum <=C .      k groups

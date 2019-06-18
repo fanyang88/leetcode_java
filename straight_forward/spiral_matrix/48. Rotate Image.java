@@ -67,7 +67,6 @@ class Solution {
               matrix[i][end] = a;
               matrix[end][n-1-i] = b;
               matrix[n-1-i][start] =c;
-              
           }
           start++;
           end--;

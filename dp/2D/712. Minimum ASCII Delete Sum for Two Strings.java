@@ -22,9 +22,9 @@ All elements of each string will have an ASCII value in [97, 122].
 */
 
 /*
-  if s1[i-1] = s2[j-1]   // no deletion
+if s1[i-1] = s2[j-1]   // no deletion
     dp[i][j] = dp[i-1][j-1];
-else   // delete either s1[i-1] or s2[j-1]
+else   // if delete s1[i-1] equals dp[i-1][j]+s1[i-1] or delete s2[j-1]
     dp[i][j] = min(dp[i-1][j]+s1[i-1], dp[i][j-1]+s2[j-1]);
     
     e.g: s2= sea    s1=eat

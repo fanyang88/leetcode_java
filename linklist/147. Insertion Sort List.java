@@ -52,7 +52,7 @@ class Solution {
         if(head == null)  return head;
         ListNode dummy = new ListNode(0);   
         dummy.next= head;
-		    ListNode cur= head, temp = null, pre= null;    
+		ListNode cur= head, temp = null, pre= null;    
         while(cur!= null && cur.next != null) {
             if(cur.val <= cur.next.val) {
                 cur = cur.next;

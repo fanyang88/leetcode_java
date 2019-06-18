@@ -23,15 +23,17 @@ Explanation:
 */
 
 /*
-        ways("2-1-1")
+    ways("2-1-1")
     case 1: ways("2") X ways("1-1") = 2-0=2
     case 2: ways("2-1") X ways("1") = 1-1=0
     whenever we meet a operator, we break the string to 2 parts
     
     "2*3-4*5"
-    if we break at first *
-    ways(2) X ways("3-4*5")
-    ={2} X {-17, -5} => since op=* {-34, -5}
+    case 1: ways(2) * ways(3-4*5)
+    ways(3-4*5) = ways(3) - ways(4*5) = -17
+                  ways(3-4) * ways(5) = -5
+    list1 = {2}
+    list2 = {-17, -5} res.add(2*(-17), 2*(-5))
     
     list1 = dfs(sub1);
     list2 = dfs(sub2);
@@ -67,10 +69,10 @@ class Solution {
       } 
       for(int i=0; i<input.length(); i++) {
           char chr = input.charAt(i);
-          if(chr != '*' && chr != '-' && chr != '+') continue;
-          List<Integer> l1 = diffWaysToCompute(input.substring(0, i));
-          List<Integer> l2 = diffWaysToCompute(input.substring(i+1));
-          for(int i1 : l1) {
+          if(chr == '*' || chr == '-' && chr == '+') { // we split to two parts
+            List<Integer> l1 = diffWaysToCompute(input.substring(0, i));
+            List<Integer> l2 = diffWaysToCompute(input.substring(i+1));
+            for(int i1 : l1) {
               for(int i2: l2) {
                   if(chr == '+') {
                       res.add(i1+i2);
@@ -80,6 +82,7 @@ class Solution {
                       res.add(i1*i2);
                   }
               }
+            } 
           }
       }
       return res;

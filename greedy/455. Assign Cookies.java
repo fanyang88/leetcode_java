@@ -28,7 +28,6 @@ You need to output 2.
 /*
         e.g: [7,8,9,10]
              [5,6,7,8]
-             
              i=0 j=0 s[j] < g[i] j++
              i=0 j=1 s[j] < g[i] j++
              i=0 j=2 s[j] == g[i] c++, i++, j++

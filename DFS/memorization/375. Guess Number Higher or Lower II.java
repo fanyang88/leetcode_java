@@ -24,7 +24,6 @@ Given a particular n ≥ 1, find out how much money you need to have to guarante
 
 /*
          first introducebest strategyto guess:
-
 for one number, like 1, best strategy is 0$
 for two number, like 3,4, best strategy is 3$, which can be understood in this way: you have two way to guess: a) start by guess 4 is the target, (the worst case is) if wrong, you get charged $4, then immediately you know 3 is the target number, get get charged $0 by guessing that, and finally you get charged $4. b) similarly, if you start by 3, (the worst case is) if wrong, you get charged $3, then you immediately know that 4 is the target number, and get charged $0 for guessing this, and finally you get charged $3. In summary:
 range ---------> best strategy cost

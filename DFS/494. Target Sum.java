@@ -50,5 +50,14 @@ Your output answer is guaranteed to be fitted in a 32-bit integer.
               dfs(nums, index+1, sum-nums[index], S, res);
           }
       }
+
+    public void dfs(int[] nums, int index, int sum, int S) {
+        if(index == nums.length) {
+            if(sum==S)  count ++;
+        } else {
+            dfs(nums, index+1, sum+nums[index], S);
+            dfs(nums, index+1, sum-nums[index], S);
+        }
+    }
   }
   

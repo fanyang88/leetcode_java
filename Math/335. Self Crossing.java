@@ -71,9 +71,8 @@ Explanation: self crossing
 
 class Solution {
   public boolean isSelfCrossing(int[] x) {
-       if (x.length <= 3) {
-          return false;
-      }
+       if (x.length <= 3) return false;
+      
       for(int i=3; i<x.length; i++) {
           if(x[i] >=x[i-2] && x[i-1] <=x[i-3])  return true;
           if(i>=4) {

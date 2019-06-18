@@ -19,7 +19,7 @@ The number in given array is in range [-100,000, 100,000].
 */
 
 /*
-    if the candies are like example 2: there are 3 kinds of candies, but total is 4, so the sister can have 2 candies
+    if the candies are like [1,1,2,3]: there are 3 kinds of candies, but total is 4, so the sister can have 2 candies
     if the candies are like 
     [1,1,1,1,3,3]
     there are 2 kinds of candies, but total is 6, so the sister can have only 2 kinds of candies

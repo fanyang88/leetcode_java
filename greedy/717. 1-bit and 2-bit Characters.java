@@ -23,8 +23,8 @@ bits[i] is always 0 or 1.
 
 /*
     [1, 1, 1, 0]
-    i=0 since num[0]=1 last=false, i++ 
-    i=2 since num[0]=1 last=false, i++ 
+    i=0 since num[0]=1 last=false, i++, i++
+    i=2 since num[0]=1 last=false, i++, i++
     i=4 stop return false
 */
 

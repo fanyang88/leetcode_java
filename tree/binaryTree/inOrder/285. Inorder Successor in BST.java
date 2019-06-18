@@ -4,8 +4,9 @@ Given a binary search tree and a node in it, find the in-order successor of that
  
 
 Example 1:
-
-
+     2
+   /   \ 
+  1     3
 Input: root = [2,1,3], p = 1
 Output: 2
 Explanation: 1's in-order successor node is 2. Note that both p and the return value is of TreeNode type.

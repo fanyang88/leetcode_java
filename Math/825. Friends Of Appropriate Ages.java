@@ -48,12 +48,10 @@ Notes:
 class Solution {
   public int numFriendRequests(int[] ages) {
       int[] map = new int[121];
-      for(int age: ages) {
-          map[age]++;
-      }
-      for(int i=1; i<121; i++) {
-          map[i] +=map[i-1];
-      }
+      for(int age: ages)  map[age]++;
+      
+      for(int i=1; i<121; i++)  map[i] +=map[i-1];
+      
       int res=0;
       for(int age: ages) {
           res += Math.max(0, map[age] - map[age/2+7] -1); // exclude itself

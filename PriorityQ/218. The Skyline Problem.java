@@ -37,9 +37,10 @@ There must be no consecutive horizontal lines of equal height in the output skyl
 
 /*
 [2 9 10], [3 7 15], [5 12 12], [15 20 10], [19 24 8]
-[2, -10]  q =[0, 10]    record[2,10]
-[3,-15]  q =[0, 10, 15]  record [3,15]
-[5, -12] q= [0, 10, 12,15] not the highest 
+sort by first value as below, q= [0]
+[2, -10] push 10, q =[0, 10]    record[2,10]
+[3,-15]  push 15, q =[0, 10, 15]  record [3,15]
+[5, -12] since 15>12, 12 is not the highest, not record, q= [0, 10, 12,15]
 [7, 15] 15= pop 15, record second highest [7,12] q=[0, 10, 12]
 [9, 10] 10 is not the highest, pop 10, q=[0, 12]
 [12, 12]  pop 12, record second highest [12, 0] q=[0]
@@ -50,9 +51,11 @@ There must be no consecutive horizontal lines of equal height in the output skyl
 
 sort the array based on the first element
 for the first time, the prevMAx = 0, we can direct push the height, and put it on result
-for the second time, if the new incoming height smaller than prev, that is prevMax still the same, push to stack only,                          otherwise, we also update the prevMax and add it to result
+for entering event, if the new incoming height smaller than queue peek, that is prevMax still the same, push to stack only,                          otherwise, we also update the prevMax and add it to result
+                     otherwise, we need to record the height
 
-for leaving event, if the height after removed from stack won't change the prevMax, means it get shadowed, then that's it,                    otherwise, we also update the prevMax and add the curMax to result
+for leaving event, if the height after removed from queue won't change the prevMax, means it get shadowed, then that's it,                    otherwise, we also update the prevMax and add the curMax to result
+                    otherwise, we need to record the second highest height which is the peek after pop.
 
 when sorting, if two building enter same time, the taller one is before the shorter one
               if two building leave same time, the taller one is after the shorter one

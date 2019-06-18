@@ -37,7 +37,6 @@ Output: "1211"
 class Solution {
   public String countAndSay(int n) {
       StringBuilder res=new StringBuilder("1");
-     
       for(int i=1; i<n; i++) {
           char cur = res.charAt(0);
           StringBuilder output = new StringBuilder();

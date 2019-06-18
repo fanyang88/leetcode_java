@@ -16,7 +16,7 @@ The input array may contain duplicates, so ascending order here means <=.
 /*
     Two pointers:
     [2, 6, 4, 8, 10, 9, 15]
-    pos1 would point to the last one that not equal to max which is 9, since at 9, the max is 10
+    pos1 go from left to right, max is 2would point to the last one that not equal to max which is 9, since at 9, the max is 10
         while 9!=max so pos1=>9
     pos2 would point to the last one from right that not equal to min which is 4, since at 4, 
         min=8, while 4!=min, so pos2=>4

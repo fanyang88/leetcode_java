@@ -12,11 +12,11 @@ Example:
 root = [5,3,6,2,4,null,7]
 key = 3
 
-    5
-   / \
-  3   6
- / \   \
-2   4   7
+    5                   5
+   / \                 / \
+  3   6    --->       4   6
+ / \   \             /     \
+2   4   7           2       7
 
 Given key to delete is 3. So we find the node with value 3 and delete it.
 
@@ -65,11 +65,11 @@ class Solution {
           } else if(root.right == null) {
               return root.left;
           } else {
-              TreeNode cur = root.right;
+              TreeNode cur = root.right; // find the next larger number, store in val
               while(cur.left != null)  cur = cur.left;
               int val = cur.val;
-              root.val = val;
-              root.right = deleteNode(root.right, val);
+              root.val = val; // make root value to be val
+              root.right = deleteNode(root.right, val); // delete the node with value=val in root right branch
           }
       }
       return root;

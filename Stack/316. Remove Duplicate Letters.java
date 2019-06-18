@@ -14,7 +14,7 @@ Output: "acdb"
 */
 
 /*
-cbacdcbc
+ cbacdcbc
  hashmap = {c: 4, b: 2, a: 1, d: 1}
  st push c visited[c] =1 since st is empty st = [c] map[c]=3
  since b < st.peek() and map[c] > 0, means c would occur in later again, 
@@ -38,7 +38,6 @@ class Solution {
       Stack<Character> st = new Stack<>();
   
       for(char c : s.toCharArray()) map[c-'a']++;
-      
       for(char c : s.toCharArray()) {
           map[c-'a'] --;
           if(!visited[c-'a']) { // c is not visited

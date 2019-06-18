@@ -88,7 +88,7 @@ class Solution {
       
       int res = Integer.MAX_VALUE;
       for(int i=cur+1; i<list.size(); i++) {
-          if(list.get(i) * list.get(cur) < 0) {
+          if(list.get(i) * list.get(cur) < 0) { // if cur and i are small, can not clear cur to be 0
               list.set(i, list.get(i) + list.get(cur));
               res = Math.min(res, 1+dfs(cur+1, list)); // cur debt is clear, move on to cur+1
               list.set(i, list.get(i) - list.get(cur));

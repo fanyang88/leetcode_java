@@ -23,7 +23,7 @@ Explanation: Your function can return either index number 1 where the peak eleme
 
  /*     3
      2
-   1     1
+   1        1
      
     peak(nums[i]) > nums[i+1] & nums[i]
     if(nums[i] > nums[i+1])  find peak in left

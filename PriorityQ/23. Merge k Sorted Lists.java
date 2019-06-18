@@ -40,7 +40,7 @@ class Solution {
       if(lists == null || lists.length==0 )  return null;
       ListNode dummy = new ListNode(0), cur = dummy;
       PriorityQueue<ListNode> q = new PriorityQueue<>(lists.length, (a, b)-> a.val - b.val);
-      // 1. put all lists into Q
+      // 1. put all list head into Q
       for(ListNode list: lists) {
           if(list != null) q.add(list);
       }

@@ -18,7 +18,6 @@ The return answers should be in the same order as the original array.
     Make abbreviation for each word.
 Then, check each word, if there are some strings which have same abbreviation with it, increase the prefix.
  
- 
  .eg: there is w113, w223, w333
   we make it to be: w23, w23, w23  first
   for w23, since word[1], word[2] as the same, set= (0,1,2)

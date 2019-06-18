@@ -55,9 +55,10 @@ The character '-' signifies an empty space on the screen.
 
 
 /*
-     base case: count+=col
+    base case: count+=col
     case 1: if next one is space, count += 1 we can include the space in this row
-    case 2: if the last one is letter in this line while next one in next line is also a letter, this word doesn't fit, remove this word,                 count -- till hit space or count <= 0
+    case 2: if the last one is letter in this line while next one in next line is also a letter, this word doesn't fit, remove this word,                 
+            count -- till hit space or count <= 0
                                 01234567
  e.g: ['ab', 'cde', 'f']   ->  'ab cde f ' length=9
  row:5 col:4

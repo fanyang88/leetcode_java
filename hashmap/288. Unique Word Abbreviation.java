@@ -32,11 +32,11 @@ isUnique("make") -> true
 
 /*
     [ "deer", "door", "cake", "card" ]
-    [d2r d2r c2e c2d]
-    i=0, map[d2r] = deer
-    i=1, since map[d2r] exist, means d2r is not unique, set to be ''
-    i=2, map[c2e] = cake
-    i=3, map[c2d] = card
+    loop all words
+    word = deer, map[d2r] = deer
+    word = door,  since map[d2r] exist, means d2r is not unique, set to be ''
+    word = cake,  map[c2e] = cake
+    word = card,  map[c2d] = card
     
     test dear, since d2r == '' not unique, return false
     test cart, since map doesn't have c2t, unqie, return true
@@ -66,7 +66,6 @@ class ValidWordAbbr {
   public boolean isUnique(String word) {
       String abbr = abbreviation(word);
       if(!map.containsKey(abbr) || map.get(abbr).equals(word))  return true;
-      //if() return true;
       return false;
   }
   

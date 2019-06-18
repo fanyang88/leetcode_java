@@ -58,9 +58,8 @@ class Solution {
   }
    
   public List<String> dfs(String s, List<String> wordDict, HashMap<String, List<String>> map) {
-      if(map.containsKey(s)) {
-          return map.get(s);
-      }
+      if(map.containsKey(s))  return map.get(s);
+      
       List<String> ans = new ArrayList<String>();
       for(String word: wordDict) {
           if(!s.startsWith(word)) continue;

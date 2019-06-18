@@ -31,7 +31,7 @@ randomSet.insert(2);
 randomSet.getRandom();
 */
 /*
-    hashmap + List
+     hashmap + List
     .e.g: insert 1, 2, 3, 
      map: [1,0] [2, 1] [3,2]  list=[1,2,3]
      delete 2
@@ -44,10 +44,8 @@ randomSet.getRandom();
 class RandomizedSet {
   Map<Integer, Integer> map  = new HashMap<>();
   List<Integer> arr = new ArrayList<Integer>();
-  //int size;
-  /** Initialize your data structure here. */
-  public RandomizedSet() {
-  }
+
+  public RandomizedSet() {}
   
   /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
   public boolean insert(int val) {

@@ -16,22 +16,17 @@ Output: 4
 
  /*
   if(matrix[i][j] ===0)  dp[i][j] = 0;
-else dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1],dp[i-1][j-1])
-get the maxV from dp, and the answer is maxV*maxV
+  else we should use the mininum length from left, up and diagnal, if the minimum length=1
+  means there is at least a length=2 square exist
+  so dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1],dp[i-1][j-1])
+  get the maxV from dp, and the answer is maxV*maxV
 
 e.g:
 
-1 0 1 0 0
-1 0 1 1 1
-1 1 1 1 1
-1 0 0 1 0
-
-0 0 0 0 0 0
-0 1 0 1 0 0 
-0 1 0 1 1 1
-0 1 1 1 2 2
-0 1 0 0 1 0
-
+1 0 1 0 0           1 0 1 0 0
+1 0 1 1 1           1 0 1 1 1
+1 1 1 1 1     ->    1 1 1 2 2
+1 0 0 1 0           1 0 0 1 0
 */
 
 class Solution {
@@ -46,7 +41,6 @@ class Solution {
                   dp[i][j] = 1+ Math.min(dp[i-1][j-1], Math.min(dp[i][j-1], dp[i-1][j]));
                   maxV = Math.max(maxV, dp[i][j]);
               }
-              
           }
       }
       return maxV*maxV;

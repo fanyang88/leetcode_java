@@ -24,7 +24,7 @@ If we want to map this to binary, we'd need (log 4 = 2)
 
 so we create an array to save these value
 char[] map = new char[26];
-//map['A' - 'A'] = 0;
+map['A' - 'A'] = 0;
 map['C' - 'A'] = 1;
 map['G' - 'A'] = 2;
 map['T' - 'A'] = 3;
@@ -37,17 +37,14 @@ so for sequence "CG" for example:
 v = 0
 v <<= 2
 v = 00
-v |= map[s.charAt(j) - 'A'];
-So map[s.charAt(j) - 'A'] = 0 = 01
-v |= 01 = 01
+v= v | map[s.charAt(j) - 'A'] = 00 | 01  = 01
+
 Nex Character "G":
 v = 01
 v <<= 2
 v = 0100
-v |= map[s.charAt(j) - 'A'];
-So map[s.charAt(j) - 'A'] = 0 = 10
-v |= 0100 = 0110
- on for the 10 chars.
+v = v | map[s.charAt(j) - 'A'] = 0100 | 10 = 0110
+go on for the 10 chars.
 
 Added to set1 (Then don't do anything, and notice here that we're depending on the condition short circuiting, so it won't continue to execute the addition to the second set since we're using && and the first condition was true and we're using not, so it will be false) - then - we do nothing.
 Not added to set1 and added to set 2 - then - that means that we saw that exact number before, so we add it to the output list.
@@ -59,19 +56,21 @@ class Solution {
       Map<Character, Integer> map = new HashMap<Character, Integer>();
       HashSet<Integer> set = new HashSet<Integer>();
       HashSet<Integer> secSet = new HashSet<Integer>();
+     
+      
+      List<String> res = new ArrayList<String>();
       map.put('A', 0);
       map.put('C', 1);
       map.put('G', 2);
       map.put('T', 3);
-      
-      List<String> res = new ArrayList<String>();
       for(int i=0; i<s.length()-9;i++) {
           int v=0;
+          // make every 10 ACGT represent by a value v
           for(int j=i; j<i+10; j++) {
               v= v<<2;
               v = v| map.get(s.charAt(j));
           }
-          if(!set.add(v) && secSet.add(v)) {
+          if(!set.add(v) && secSet.add(v)) {// set has, secSet doesn't has
               res.add(s.substring(i, i+10));
           }
       }

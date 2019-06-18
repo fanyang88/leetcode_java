@@ -25,7 +25,7 @@ After applying operation [0,2,-2]:
 */
 
 /*
-Just store every start index for each value and at end index plus one minus it
+Just store every start index for each value and at end  +1  place the neg
 
      0 1 2 3 4
     [0,0,0,0,0] 

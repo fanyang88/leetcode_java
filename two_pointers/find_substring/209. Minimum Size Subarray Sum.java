@@ -21,8 +21,8 @@ i=5 j=3 sum=9>7  while(sum>=7) j++ sum-=num[j]=7 j++ sum-=num[j]=6
 class Solution {
   public int minSubArrayLen(int s, int[] nums) {
       if(nums.length==0)  return 0;
-      int sum = 0, minL = Integer.MAX_VALUE, j=0;
-      for(int i=0; i<nums.length; i++) {
+      int sum = 0, minL = Integer.MAX_VALUE;//, j=0;
+      for(int i=0, j=0; i<nums.length; i++) {
           sum += nums[i];
           while(sum >= s) {
               minL = Math.min(minL, i-j+1);

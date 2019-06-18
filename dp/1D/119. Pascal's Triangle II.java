@@ -17,8 +17,8 @@ Output: [1,3,3,1]
 e.g: n=3
 i=0, res=1
 i=1, res =[1,1]
-i=2, res= [1,1,1]  j=i-1, j>0; j--  res.set(j, res.get(j-1) + res.get(j))
-i=3,
+i=2, res= [1,1,1]  j=i-1, j>0; j--  res.set(j, res.get(j-1) + res.get(j)), res=[1,2,1]
+i=3, res=[1,2,1,1] j=i-1=2 res[2]+=res[1]=3 j--=1 res[1]+=res[0]=3, j--=0, stop
 */
 class Solution {
   public List<Integer> getRow(int rowIndex) {

@@ -54,8 +54,7 @@ class Solution {
 class Solution {
   public int hIndex(int[] citations) {        
       int left=0, len = citations.length, right= len-1,  mid;
-      while(left<=right)
-      {
+      while(left<=right) {
           mid=(left+right)>>1;
           if(citations[mid]== (len-mid)) return citations[mid];
           if(citations[mid] >= (len-mid)) right = mid - 1;

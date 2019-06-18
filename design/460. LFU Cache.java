@@ -44,6 +44,7 @@ class LFUCache {
      
   Map<Integer, Integer> vals = new HashMap<>();
   Map<Integer, Integer> counts = new HashMap<>();
+  // key is frequency, values are numbers occur at this frequency
   Map<Integer, LinkedHashSet<Integer>> map = new HashMap<>();
   int min, cap;
   public LFUCache(int capacity) {

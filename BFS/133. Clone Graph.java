@@ -43,26 +43,23 @@ Note: The information about the tree serialization is only meant so that you can
                                     then add the neighbor node into the cloned parent node
                                     else direct add neighbor node into the cloned parent node
  */
-public class Solution {
-  public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-      if (node == null) return null;
-      
-      UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
-      HashMap<Integer, UndirectedGraphNode> map = new HashMap<>();
-      map.put(node.label, newNode);
-      
-      Queue<UndirectedGraphNode> queue = new LinkedList<>();
-      queue.offer(node);
-      while(!queue.isEmpty()) {
-          UndirectedGraphNode cur = queue.poll();
-          for(UndirectedGraphNode next: cur.neighbors) {
-              if(!map.containsKey(next.label)) {
-                  map.put(next.label, new UndirectedGraphNode(next.label));
-                  queue.offer(next);
-              }
-              map.get(cur.label).neighbors.add(map.get(next.label));
-          }
-      }
-      return newNode;
-  }
+class Solution {
+    public Node cloneGraph(Node node) {
+        Node copy = new Node(node.val, new ArrayList<Node>());
+        Map<Integer, Node> map = new HashMap<>();
+        map.put(node.val, copy);
+        Queue<Node> q = new LinkedList<>();
+        q.add(node);
+        while(!q.isEmpty()) {
+            Node cur = q.poll();
+            for(Node next: cur.neighbors) {
+                if(!map.containsKey(next.val)) {
+                    map.put(next.val, new Node(next.val, new ArrayList<Node>()));
+                    q.add(next);
+                } 
+                map.get(cur.val).neighbors.add(map.get(next.val));
+            }
+        }
+        return copy;
+    }    
 }

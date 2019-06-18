@@ -25,8 +25,7 @@ The total number of elements of the given matrix will not exceed 10,000.
 
 
 /*
-     Walk patterns:
-
+Walk patterns:
 If out of bottom border (row >= m) then row = m - 1; col += 2; change walk direction.
 if out of right border (col >= n) then col = n - 1; row += 2; change walk direction.
 if out of top border (row < 0) then row = 0; change walk direction.
@@ -44,7 +43,7 @@ check order:
 
 there is to direction: up : [-1, 1] and down: [1, -1]
 
-when hit the boundary, we need to check bottom -> right -> up -> left
+when hit the boundary, we need to check bottom -> right -> up -> left, start from bottom in anti-clock wise
 for example:
 when at (0, 0) go up => (-1, 1) since row=-1<0  row = 0 col stay the same, change dir
 when at (m-2, 0) go down => (m-1, -1) since col=-1<0  col = 0 change dir
@@ -56,15 +55,15 @@ when at (m-1, n-2) go down=> (m, n-3)  since row>=m, row=m-1, col+=2=n-1 change 
 class Solution {
   public int[] findDiagonalOrder(int[][] matrix) {
       if( matrix.length==0)  return new int[0];
-      int[][] dir = {{-1, 1}, {1, -1}};
+      
       int index= 0, m= matrix.length, n = matrix[0].length, row=0, col=0, d=0;
       int[] res = new int[m*n];
-      
+      int[][] dir = {{-1, 1}, {1, -1}};
       while(index < m*n) {
           res[index++] = matrix[row][col];
           row += dir[d][0];
           col += dir[d][1];
-          if(row==m) {  // go down, col = -1, next should be [m-1, 1]check bottom, hit bottom boundray, e,g: 8 go down
+          if(row==m) {  // hit bottom go down, col = -1, next should be [m-1, 1]check bottom, hit bottom boundray, e,g: 8 go down
               row = m-1;
               col = col + 2;
               d = 1-d;

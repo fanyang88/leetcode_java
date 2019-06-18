@@ -23,8 +23,8 @@ Explanation: The maximum number of envelopes you can Russian doll is 3 ([2,3] =>
    dp[0]=1
    dp[1]=2 since [5,4] > [2,3]
    dp[2]: since[6,4] > [2,3] dp[0]+1=2 
-          since[6,4] = [5,4] dp[2]=0
-          dp[2]=2
+          since[6,4] = [5,4] not qualify
+          => dp[2]=2
    dp[3]: since[6,7] > [2,3] dp[0]+1=2 
           since[6,7] > [5,4] dp[1]+1=3
           dp[2]=3

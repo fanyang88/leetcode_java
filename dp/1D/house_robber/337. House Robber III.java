@@ -1,5 +1,6 @@
 /*
-The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the "root." Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that "all houses in this place forms a binary tree". It will automatically contact the police if two directly-linked houses were broken into on the same night.
+The thief has found himself a new place for his thievery again. 
+There is only one entrance to this area, called the "root." Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that "all houses in this place forms a binary tree". It will automatically contact the police if two directly-linked houses were broken into on the same night.
 
 Determine the maximum amount of money the thief can rob tonight without alerting the police.
 
@@ -38,8 +39,9 @@ Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.
  *     TreeNode(int x) { val = x; }
  * }
  
- since for each root, the maxV on this root either equals the root + root.left.left + root.left.right + root.right.left+ ....
-  or the root.left+root.right+root.left.left.left + ...
+ since for each root, the maxV on this root equals max of 1 and 2:
+    1. root + root.left.left + root.left.right + root.right.left+ root.right.right....
+    2. root.left+root.right+root.left.left.left + ...
   
  
      3
@@ -49,7 +51,7 @@ Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.
      3   1
      
   case 1: rob(root.left) + rob(root.right)
-  case 2: rob(root) + rob(root) + rob(root.left.left) +
+  case 2: root.val + rob(root.left.left) +
           rob(root.left.rihgt) + rob(root.right.left) + rob(root.right.rihgt)
  */
 class Solution {

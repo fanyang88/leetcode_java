@@ -21,9 +21,11 @@ Return false.
 
 /*        123456789012
     s = "internationalization", abbr = "i12iz4n":
-    i=0, j=0 since i=i i=1 j=1
-    i=1 j=1 since j point to digit, count=12 j=3 
-
+    i=0, j=0 since i=j i=1 j=1
+    i=1 j=1 since j point to digit, count=12 j=3 i=i+count=13
+    i=13 j=3 i=j i=14 j=4
+    ...
+    
 */
 
 class Solution {
@@ -35,8 +37,8 @@ class Solution {
               i++;
               continue;
           } 
+          // If j is not point to a digit but a letter, not match
           if(abbr.charAt(j) <= '0' || abbr.charAt(j) > '9')return false;
-           
           int s=j;
           while(j < abbr.length() && Character.isDigit(abbr.charAt(j))) j++;
           int count = Integer.valueOf(abbr.substring(s, j));

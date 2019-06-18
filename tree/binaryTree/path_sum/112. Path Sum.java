@@ -45,15 +45,10 @@ class Solution {
   
   public boolean dfs(TreeNode root, int sum) {
       if(root.left == null && root.right==null) {
-          if(root.val == sum)  return true;
+          return root.val==sum;
       }
-      
-      if(root.left != null) {
-           if(dfs(root.left, sum-root.val))  return true;
-      }
-      if(root.right != null) {
-           if(dfs(root.right, sum-root.val))  return true;
-      }
+      if(root.left != null && dfs(root.left, sum-root.val))   return true;
+      if(root.right != null && dfs(root.right, sum-root.val))   return true;
       return false;
   }
 }

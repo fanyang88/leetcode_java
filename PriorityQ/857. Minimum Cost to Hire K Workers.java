@@ -40,7 +40,6 @@ Answers within 10^-5 of the correct answer will be considered correct.
 如果理解了上面的那段话，那么我们需要按照价性比来做排序，然后依次遍历，得到K个工人的工资总和。
 
 That is, the group of people should have the same ratio.
-
 Every worker in the paid group must be paid at least their minimum wage expectation.
 ->
 
@@ -90,22 +89,22 @@ O(NlogK) for priority queue.
 
 class Solution {
   public double mincostToHireWorkers(int[] quality, int[] wage, int K) {
-      PriorityQueue<Integer> pq = new PriorityQueue<Integer>((a, b) -> Integer.compare(b, a));
-      double[][] workers = new double[quality.length][2];
-      for(int i=0; i<quality.length; i++) 
-          workers[i] = new double[]{(double)(wage[i])/quality[i], (double)quality[i]};
-      
-      Arrays.sort(workers, (a, b) -> Double.compare(a[0], b[0]));
-      
-      int sum =0;
-      double minV = Double.MAX_VALUE;
-      for(double[] worker : workers) {
-          sum += (int)worker[1];
-          pq.offer((int)worker[1]);
-          if(pq.size() > K)  sum -= pq.poll();
-          if(pq.size() == K) minV = Math.min(minV, sum* worker[0]);
-      }
-      return minV;
+    PriorityQueue<Integer> pq = new PriorityQueue<Integer>((a, b) -> b-a);
+    double[][] workers = new double[quality.length][2];
+    for(int i=0; i<quality.length; i++) 
+        workers[i] = new double[]{(double)(wage[i])/quality[i], (double)quality[i]};
+    
+    Arrays.sort(workers, (a, b) -> Double.compare(a[0], b[0]));
+    
+    int sum =0;
+    double minV = Double.MAX_VALUE;
+    for(double[] worker : workers) {
+        sum += (int)worker[1];
+        pq.offer((int)worker[1]);
+        if(pq.size() > K)  sum -= pq.poll(); // poll get the largest out.
+        if(pq.size() == K) minV = Math.min(minV, sum* worker[0]);
+    }
+    return minV;
   }
 }
 

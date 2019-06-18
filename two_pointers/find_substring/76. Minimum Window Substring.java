@@ -16,7 +16,6 @@ If there is such window, you are guaranteed that there will always be only one u
  /*
         0 1 2 3 4 5 6 7 8 9 10 11 12  T=ABC
         A D O B E C O D E B A  N  C 
-        
 count=3
 i=0 map[A]=1 counter--=2 map[A]--=0
 i=1
@@ -44,9 +43,7 @@ class Solution {
       if(t.length() > s.length())  return "";
       int minLen= Integer.MAX_VALUE, begin=0, counter = t.length();
       int[] map = new int[128];
-      for(int i=0; i<t.length(); i++) {
-          map[t.charAt(i)- '0'] ++;
-      }
+      for(int i=0; i<t.length(); i++)  map[t.charAt(i)- '0'] ++;
       
       for(int i=0, j=0; i<s.length(); i++) {
           char chr = s.charAt(i);

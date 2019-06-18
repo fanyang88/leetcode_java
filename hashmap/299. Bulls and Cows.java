@@ -24,9 +24,7 @@ Note: You may assume that the secret number and your friend's guess only contain
 */
 
 /*
-   1123
-   0111
-   
+   1123, 0111
    i=0, 1!=0 map[1] = 1
    i=1, 1==1 bull++
    i=2, 2!=1 map[2] = 1

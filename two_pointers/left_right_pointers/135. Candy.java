@@ -48,9 +48,7 @@ class Solution {
               candy[i] = Math.max(candy[i], candy[i+1]+1);
           }
       }
-      for(int num: candy) {
-          sum += num;
-      }
+      for(int num: candy) sum += num;
       return sum;
   }
 }

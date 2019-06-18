@@ -33,7 +33,7 @@ k is in the range of [0, n - 1].
 There will not be any duplicated flights or self cycles.
 */
 
-//It happen to be the same idea of Dijkstra's algorithm, but we need to keep the path.
+//It happen to be the same idea of Dijkstra's algorithm, but we need pruning the path.
 
 class Solution {
   public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
@@ -50,7 +50,7 @@ class Solution {
           // cur[0] is price, cur[1] is city, cur[2] is stop;
           if(cur[1] == dst) return cur[0];
           int stop = cur[2];
-          if(stop==0)  continue;  // this is the Key!!!
+          if(stop==0)  continue;  // this is the Key!!!, we don't need this path anymore
           Map<Integer, Integer> adj= map.getOrDefault(cur[1], new HashMap<>());
           for(int key: adj.keySet()) {
               pq.offer(new int[]{cur[0] + adj.get(key), key, stop-1});

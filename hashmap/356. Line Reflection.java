@@ -20,9 +20,6 @@ Could you do better than O(n2) ?
                    |
                    |
                    y=mid
-        
-        e.g: x=-3 x2=1 mid=-1  (x1+x2)/2 = mid we set mid = 2*mid x1+x2=mid
-            
         if there is a line parallel to y that can reflect all points, say it is y=mid
  means for each pointer p , there must to another pointer p2 in the set that has x = mid - p1.x  and p1.y=p2.y
  1. find the mid = min+max,  e.g: min=-1 max = 2 mid = 1  

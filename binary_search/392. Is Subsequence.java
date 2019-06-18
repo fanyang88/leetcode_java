@@ -39,9 +39,8 @@ class Solution {
           if(!map.containsKey(c))  map.put(c, new ArrayList<>());
           map.get(c).add(i);
       }
-      
+       // use binary search
       int start=0;
-      // use binary search
       for(char c : s.toCharArray()) {
           if(!map.containsKey(c)) return false;
           int pos = binarySearch(map.get(c), start); // check if we can find a value larger than start

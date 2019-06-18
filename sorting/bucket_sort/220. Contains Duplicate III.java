@@ -1,8 +1,8 @@
 /**
  * 
  * Given an array of integers, find out whether there are two distinct indices i and j 
- * in the array such that the absolute difference between nums[i] and nums[j] 
- * is at most t and the absolute difference between i and j is at most k.
+in the array such that the absolute difference between nums[i] and nums[j] 
+is at most t and the absolute difference between i and j is at most k.
 
 Example 1:
 
@@ -40,9 +40,8 @@ class Solution {
         
         long diff = Long.valueOf(t)+1;
         long minV = nums[0];
-        for(int num : nums) {
-            minV = Math.min(minV, (long)num);
-        }
+        for(int num : nums) minV = Math.min(minV, (long)num);
+        
         Map<Long, Integer> bucket = new HashMap<Long, Integer>();
         for(int i=0; i<nums.length; i++) {
             long cur = Long.valueOf(nums[i]);

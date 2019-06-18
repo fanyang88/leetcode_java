@@ -37,6 +37,9 @@ i=6 since arr[6] < arr[st.peek] st.pop=5 maxArea = max(10, arr[5]*(6-currentTop-
     since arr[6] < arr[st.peek] st.pop=4 maxArea = max(10, arr[4]*(6-1-1)) = 10
     since arr[6] < arr[st.peek] st.pop=1 since st is empty now, means all elements before index(1) are larger than arr[1]
                                              maxArea = max(10, arr[1]*6) = 10, this is the KEY!!!
+The key is if current height is larger than previous, we can keep push
+    otherwise, we should compute the area with previous height
+    then push current height
     
 the core, if nums[i] > nums[i-1] st.push(i)
           else we need to keep pop st, say index= st.pop() 
@@ -66,7 +69,7 @@ class Solution {
               if(st.isEmpty()) {
                   maxArea = Math.max(maxArea, i*heights[index]);
               } else {
-                      maxArea = Math.max(maxArea, heights[index]*(i-st.peek()-1));
+                  maxArea = Math.max(maxArea, heights[index]*(i-st.peek()-1));
               }
           }
           st.push(i);

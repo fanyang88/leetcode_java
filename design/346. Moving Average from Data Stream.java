@@ -24,7 +24,6 @@ m.next(5) = (10 + 3 + 5) / 3
 class MovingAverage {
   int[] arr;
   int sum, count;
-  /** Initialize your data structure here. */
   public MovingAverage(int size) {
       sum=0;
       arr = new int[size];

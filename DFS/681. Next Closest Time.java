@@ -1,5 +1,6 @@
 /*
-Given a time represented in the format "HH:MM", form the next closest time by reusing the current digits. There is no limit on how many times a digit can be reused.
+Given a time represented in the format "HH:MM", form the next closest time by reusing the current digits. 
+There is no limit on how many times a digit can be reused.
 
 You may assume the given input string is always valid. For example, "01:34", "12:09" are all valid. "1:34", "12:9" are all invalid.
 
@@ -17,7 +18,12 @@ Explanation: The next closest time choosing from digits 2, 3, 5, 9, is 22:22. It
 
 // use dfs to generate all the combination and find the next larger one
 /*
-    e.g: 1934 ->1349
+    e.g: 1349
+     /    |   |   \
+     1    3   4   9
+  / | | \   ...  / | | \
+  1 3 4 9       1  3 4  9
+  ....            ....
     we can get combination: 1111, 1333, 1344, 1349, 3333, .....
     
     examine each combination to get the next larger or the minimum, 
@@ -51,10 +57,7 @@ class Solution {
       }
       for(int i=0; i<4; i++) {
           // pruning
-          if(cur.length() >=2) {
-              int hour = Integer.valueOf(cur.substring(0,2));
-              if(hour >=24) continue;
-          }
+          if(cur.length() >=2 && Integer.valueOf(cur.substring(0,2) >= 24) continue;
           if(cur.length() >=3 && cur.charAt(2) >= '6') continue;
           dfs(cur+time.charAt(i), time);
       }

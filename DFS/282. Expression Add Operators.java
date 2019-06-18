@@ -65,7 +65,7 @@ class Solution {
       return res;
   }
   
-  public void dfs(int pos, long cur, long prev, String exp, String num, int target, List<String> res) {
+  public void dfs(int pos, long cur, long prev, String exp, String num, int target) {
       if(pos == num.length()) { // come to the end
           if(cur==target) {
               res.add(exp);
@@ -77,12 +77,12 @@ class Solution {
           if(l>1 && num.charAt(pos) == '0') break;
           long n = Long.parseLong(num.substring(pos, pos+l));
           if(pos == 0){
-              dfs(pos+l, n, n, exp+n, num, target, res);
+              dfs(pos+l, n, n, exp+n, num, target);
           }
           else{
-              dfs(pos+l, cur+n, n, exp+"+"+n, num, target, res);
-              dfs(pos+l, cur-n, -n, exp+"-"+n, num, target, res);
-              dfs(pos+l, cur-prev+prev*n, prev*n, exp+"*"+n, num, target, res);
+              dfs(pos+l, cur+n, n, exp+"+"+n, num, target);
+              dfs(pos+l, cur-n, -n, exp+"-"+n, num, target);
+              dfs(pos+l, cur-prev+prev*n, prev*n, exp+"*"+n, num, target);
           }
       }
   }

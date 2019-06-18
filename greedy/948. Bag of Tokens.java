@@ -47,10 +47,10 @@ And you can use just some of the tokens (don't have to use all of them).
 Your target is to get the maximum points possible.
 
 e.g: [100,200,300,400]  P=200
-since P=200, we exchange power to points P=100 score=1
-since power< 200, exchange score to power, P=500 score=0
-since power > 200, exchange power to points, P=300 score=1
-since power =300, exchange power to score, score=2
+since P=200, minus token[0] power, plus 1 point, we exchange power to points P=100 score=1
+since power< 200, plus token[3] power, minus 1 point, exchange score to power, P=500 score=0
+since power > 200, minus token[1], add 1 score, exchange power to points, P=300 score=1
+since power =300, minus token[2], add 1 score, exchange power to score, score=2
 
 two pointers, 
 when restPower < left, 

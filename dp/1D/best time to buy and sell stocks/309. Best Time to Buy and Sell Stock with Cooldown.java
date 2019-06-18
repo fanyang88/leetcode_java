@@ -13,7 +13,7 @@ Explanation: transactions = [buy, sell, cooldown, buy, sell]
 */
 
 /*
-        we can choose one of three states: but, sell, rest
+        we can choose one of three states: buy, sell, rest
         brute force would be try each 3 and get the max, would be O(3^n)
         
         we can construct the relationship of those 3 states:

@@ -25,7 +25,7 @@ The given array will be in the range [1, 20000].
 */
 
 /*
-use bucket sort
+ use bucket sort
  partition the pots into buckets, each size is k+1, total number =n/k+1
  b[0]: 1~k+1  b[1]: k+2~2k+2 ....
  

@@ -50,6 +50,5 @@ class Solution {
       if(i+1<m  && rooms[i+1][j] > v+1) dfs(i+1, j, v+1, rooms, m, n);
       if(j-1>=0 && rooms[i][j-1] > v+1) dfs(i, j-1, v+1, rooms, m, n);
       if(j+1<n  && rooms[i][j+1] > v+1) dfs(i, j+1, v+1, rooms, m, n);
-      
   }
 }

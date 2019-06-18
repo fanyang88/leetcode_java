@@ -26,10 +26,10 @@ read("abc", 1); // returns ""
  /* The read4 API is defined in the parent class Reader4.
       int read4(char[] buf); */
 /*
-  157 is focus on read the whole file. e.g:
+    last question is focus on read the whole file. e.g:
     Input: buf = "abcde", n = 5 
     Output: "abcde"
-    In 157, everytime we try to read as many as chars as we can till we hit n 
+    everytime we try to read as many as chars as we can till we hit n 
     
     this question is focus on call read mutiple times, each time we put certain chars in buf, till we hit n, everytime, we should return the buf length, not the whole file
     read4() has its own file pointer, much like FILE *fp in C.

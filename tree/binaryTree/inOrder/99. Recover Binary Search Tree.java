@@ -58,7 +58,7 @@ Output: [2,1,4,null,null,3]
 
 in order: 
 st push 3
-st push 1  st pop 1 become pre   st pop 3=cur.val > pre.val, pre=3 
+st push 1  st pop 1 become pre   st pop 3=cur.val > pre.val, pre=3
 st push 4  st push 2, st pop 2, since cur=2< pre=3 first=3 sec=2 pre=2
                     st pop 4, since cur=4> pre=2 
 swap frst and second
@@ -86,9 +86,33 @@ class Solution {
           pre = cur;
           cur = cur.right;
       }
-      
       int val = first.val;
       first.val = sec.val;
       sec.val = val;
   }
+}
+
+
+class Solution {
+    TreeNode pre = null;
+    public void recoverTree(TreeNode root) {
+        Deque<TreeNode> q = new ArrayDeque<TreeNode>();
+        inorder(root, q);
+        TreeNode first = q.pollFirst();
+        TreeNode last = q.pollLast();
+        int t = first.val;
+        first.val = last.val;
+        last.val = t;
+    }
+    
+    void inorder(TreeNode root, Deque<TreeNode> q) {
+        if(root == null) return;
+        inorder(root.left, q);
+        if(pre != null && pre.val >= root.val) {
+            q.addLast(pre);
+            q.addLast(root);
+        }
+        pre = root;
+        inorder(root.right, q);
+    }
 }

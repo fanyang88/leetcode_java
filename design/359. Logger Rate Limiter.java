@@ -30,7 +30,6 @@ logger.shouldPrintMessage(11,"foo"); returns true;
 
 class Logger {
   Map<String, Integer> map;
-  /** Initialize your data structure here. */
   public Logger() {
       map = new HashMap<>();
   }

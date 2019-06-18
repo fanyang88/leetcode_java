@@ -1,7 +1,10 @@
 /*
 Remember the story of Little Match Girl? By now, you know exactly what matchsticks the little match girl has, please find out a way you can make one square by using up all those matchsticks. You should not break any stick, but you can link them up, and each matchstick must be used exactly one time.
 
-Your input will be several matchsticks the girl has, represented with their stick length. Your output will either be true or false, to represent whether you could make one square using all the matchsticks the little match girl has.
+Your input will be several matchsticks the girl has, 
+represented with their stick length. 
+Your output will either be true or false, 
+to represent whether you could make one square using all the matchsticks the little match girl has.
 
 Example 1:
 Input: [1,1,2,2,2]
@@ -47,11 +50,10 @@ class Solution {
       if(nums.length == index) {
           if(sum0==target && sum1==target && sum2==target)  return true;
           return false;
-      } else {
-             return dfs(index+1, sum0+nums[index], sum1, sum2, sum3, target, nums) ||
-                  dfs(index+1, sum0, sum1+nums[index], sum2, sum3, target, nums) ||
-                  dfs(index+1, sum0, sum1, sum2+nums[index], sum3, target, nums) ||
-                  dfs(index+1, sum0, sum1, sum2, sum3+nums[index], target, nums);
-      }
+      } 
+        return dfs(index+1, sum0+nums[index], sum1, sum2, sum3, target, nums) ||
+               dfs(index+1, sum0, sum1+nums[index], sum2, sum3, target, nums) ||
+               dfs(index+1, sum0, sum1, sum2+nums[index], sum3, target, nums) ||
+               dfs(index+1, sum0, sum1, sum2, sum3+nums[index], target, nums);
   }
 }

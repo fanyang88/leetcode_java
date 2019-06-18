@@ -17,9 +17,9 @@ Output: 1024
   so (a^3)%c = (a%c) * ( (a^2)%c) %c
   
   Input: a = 2, b = [1,0, 0]
-  i=0  res=1 pow(1, 10)*2=2 . res=2
-  i=1  res=2 pow(2, 10)*pow(2, 0)=1024
-  i=2 res=1024 res= pow(1024, 10)*pow(2*0)
+  i=0 b[0]=1 res=1 pow(1, 10)*pow(2, 1)=2 . res=2
+  i=1 b[1]=0 res=2 pow(2, 10)*pow(2, 0)=1024
+  i=2 b[2]=0 res=1024 res= pow(1024, 10)*pow(2, 0)
   
 */
 

@@ -27,17 +27,19 @@ First we pick 1 as root, for the left sub tree, there are none;
       we pick 4 as root, left sub tree has {1,2,3} dp[3], right sub tree is {5}=dp[3]*[1]
       we pick 5 as root, left sub tree has {1,2,3,4} dp[4], right sub tree is {}=dp[4]*[0]
       the sum is dp[5]
- to build a tree contain {1,2}  pick 1 as root, left is {}, right is {2} dp[0]*dp[1]=1
-                                pick 2 as root, left is {1}, right is {} dp[1]*dp[0]=1 . 
-                                dp[2]=2
- to build a tree contain {1,2,3}  pick 1 as root, left is {}, right is {2,3} dp[0]*dp[2]=2
-                                  pick 2 as root, left is {1}, right is {3} dp[1]*dp[1]=1 . 
-                                  pick 3 as root, left is {1,2}, right is {} dp[2]*dp[0]=2
- 
- 
-  dp[0] = 0 
-  dp[1] = 1
-      
+    base case: dp[i] represent i nodes can have dp[i] ways to form a BST 
+    dp[0] = 0 
+    dp[1] = 1
+ to build a tree contain 2 nodes {1,2}  
+    pick 1 as root, left is {}, right is {2} dp[0]*dp[1]=1
+    pick 2 as root, left is {1}, right is {} dp[1]*dp[0]=1 
+        dp[2]= dp[0]*dp[1] + dp[1]*dp[0] = 2
+ to build a tree contain {1,2,3} 3 nodes
+    pick 1 as root, left is {}, right is {2,3} dp[0]*dp[2]=2
+    pick 2 as root, left is {1}, right is {3} dp[1]*dp[1]=1 . 
+    pick 3 as root, left is {1,2}, right is {} dp[2]*dp[0]=2
+        dp[3] = dp[0]*dp[2] + dp[1]*dp[1] + dp[2]*dp[0]
+    dp[i] +=dp[k]*dp[i-k-1] k=0~i-1
 */  
 
 class Solution {

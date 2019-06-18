@@ -20,15 +20,13 @@ hashMap.remove(2);          // remove the mapping for 2
 hashMap.get(2);            // returns -1 (not found) 
 
 Note:
-
 All keys and values will be in the range of [0, 1000000].
 The number of operations will be in the range of [1, 10000].
 Please do not use the built-in HashMap library.
-*/
 
-// since All keys and values will be in the range of [0, 1000000].
-/*
-    use a bucket with size=1000, each bucket store 1001 items
+
+ since All keys and values will be in the range of [0, 1000000].
+ use a bucket with size=1000, each bucket store 1001 items
 */
 
 class MyHashMap {
@@ -36,7 +34,6 @@ class MyHashMap {
   int bucket = 1000;
   int itemsPerBuckets = 1001;
   int[][] table;
-  /** Initialize your data structure here. */
   public MyHashMap() {
       table = new int[bucket][itemsPerBuckets];
       for(int[] t: table) Arrays.fill(t, -1);

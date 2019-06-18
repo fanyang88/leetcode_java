@@ -42,7 +42,7 @@ Input: s1 = "great", s2 = "rgeat"
 Output: true
 Example 2:
 
-Input: s1 = "abcde", s2 = "caebd"
+Input: s1 = "abcde", s2 = "caebd", abcde->cdeab, can't change to  caebd
 Output: false
  */
 

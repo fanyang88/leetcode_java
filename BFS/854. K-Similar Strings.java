@@ -49,7 +49,7 @@ class Solution {
               if(cur.equals(B)) return step;
               int i=0;
               while(i < B.length() && cur.charAt(i) == B.charAt(i)) i++;
-              // now i point to the first pos cur and B doesn;t match
+              // now i point to the first pos cur and B doesn't match
               for(int j = i+1; j<B.length(); j++) {
                   if(cur.charAt(j) == B.charAt(j) || cur.charAt(i) != B.charAt(j)) continue;
                   String str = swap(i, j, cur);

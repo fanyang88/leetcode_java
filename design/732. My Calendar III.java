@@ -50,11 +50,8 @@ we need to get the max number during any time between start and end.
 [25,55]     0 - 5 - 10 - 15 - 20 - 25 - 30 - 35 - 40 - 45 - 50 - 55 - 60
                 2    1   -1   -1   [1             -1        1    -1]  -1       max= 3
 
-
 This is to find the maximum number of concurrent ongoing event at any time.
-
 We can log the start & end of each event on the timeline, each start add a new ongoing event at that time, each end terminate an ongoing event. Then we can scan the timeline to figure out the maximum number of ongoing event at any time.
-
 The most intuitive data structure for timeline would be array, but the time spot we have could be very sparse, 
 so we can use sorted map to simulate the time line to save space.
 
