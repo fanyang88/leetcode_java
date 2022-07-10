@@ -81,3 +81,38 @@ class Solution {
       return max;
   }
 }
+
+
+
+
+
+PYTHON version:
+
+class Solution:
+    def totalFruit(self, fruits: List[int]) -> int:
+        maxlen = 0
+        map_d = {}
+        right = 0
+        left = 0
+        while right < len(fruits):
+            map_d[fruits[right]] = map_d[fruits[right]]+1 if fruits[right] in map_d else 1
+            
+            while len(map_d) > 2:
+                map_d[fruits[left]] = map_d[fruits[left]]-1
+                if map_d[fruits[left]] == 0:
+                    del map_d[fruits[left]]
+                left=left+1
+            
+            #update maxlen
+            maxlen = max(maxlen, right-left+1)
+            right=right+1
+            
+        return maxlen
+        
+# same as 159
+# [1,2,3,2,2]
+# 1: {1: 1} update maxlen
+# 2: {1: 1, 2: 1} update maxlen
+# 3: {1: 1, 2: 1, 3: 1} left++ {2: 1, 3:1} update maxlen
+# 2: {2: 2, 3:1} update maxlen
+# 2: {2: 3, 3:1} update maxlen
