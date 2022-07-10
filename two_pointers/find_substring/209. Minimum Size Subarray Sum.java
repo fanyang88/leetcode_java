@@ -33,3 +33,40 @@ class Solution {
       return minL== Integer.MAX_VALUE ? 0 : minL;
   }
 }
+
+
+
+PYTHON VERSION:
+
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        minlen = len(nums)+1
+        right = 0
+        left = 0
+        t_sum = 0
+        while right < len(nums):
+            t_sum = t_sum + nums[right]
+            # shrink window
+            while t_sum >= target:
+                minlen = min(minlen, right-left+1)
+                t_sum = t_sum - nums[left]
+                left = left+ 1
+            
+            right = right +1
+        
+        #corner case: target = 11, nums = [1,1,1,1,1,1,1,1] output 0
+        if minlen == len(nums)+1:
+            return 0
+        return minlen
+        
+        
+        
+# # thoughts:
+# [2,3,1,2,4,3] target =7
+# 2: sum=2<7 right++
+# 3: sum=5<7 right++
+# 1: sum=6<7 right++
+# 2: sum=8>7 update minlen, left++ sum=6 right++
+# 4: sum=6+4=10 update minlen, left++ sum=10-3=7 update minlen left++ sum=7-1=6 right++
+# 3: sum=6+3=9 update  minlen, left++ sum=9-2=7 update minlen left++ sum=7-4=3 right++ exit
+    
