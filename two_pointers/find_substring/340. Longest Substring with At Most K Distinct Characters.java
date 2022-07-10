@@ -43,3 +43,28 @@ class Solution {
       return maxL;
   }
 }
+
+
+PYTHON:
+class Solution:
+    def lengthOfLongestSubstringKDistinct(self, s: str, k: int) -> int:
+        # same as 159
+        #define hashmap
+        hmap = {}
+        right = 0
+        left = 0
+        maxlen = 0
+        while right < len(s):
+            hmap[s[right]] = hmap[s[right]]+1 if s[right] in hmap else 1
+            
+            # check if need shrink window
+            while len(hmap) > k:
+                # update left
+                hmap[s[left]] = hmap[s[left]] - 1
+                if hmap[s[left]] == 0:
+                    del hmap[s[left]]
+                left = left+1
+            
+            maxlen = max(maxlen, right - left +1)
+            right = right+1
+        return maxlen
