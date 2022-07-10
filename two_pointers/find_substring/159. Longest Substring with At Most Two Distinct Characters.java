@@ -47,3 +47,43 @@ class Solution {
       return maxL;
   }
 }
+
+
+PYTHON version:
+class Solution:
+    def lengthOfLongestSubstringTwoDistinct(self, s: str) -> int:
+        
+        # define hashmap
+        hmap = {}
+        # define maxlen
+        maxlen = 0
+        # define right, left pointer
+        right =0
+        left = 0
+        while right < len(s):
+            hmap[s[right]] = hmap[s[right]] + 1 if s[right] in hmap else 1
+            
+            # shrink window if map length > 2
+            while len(hmap) > 2:
+                hmap[s[left]] = hmap[s[left]]-1
+                if hmap[s[left]] == 0:
+                    del hmap[s[left]]
+                left=left+1
+                
+            maxlen = max(maxlen, right-left+1)
+            right=right+1
+            
+        return maxlen
+        
+    
+    
+    #  thoughts, use a hashmap to record each char as key and exist as occurances
+    #  e c e b a 
+    # e: {e : 1}  len =1 < 2 continue expand window update maxLen
+    # c: {e: 1, c: 1} len = 2 continue expand window update maxLen
+    # e: {e: 2, c: 1} len = 2 continue expand window update maxLen
+    # b: {e: 2, c: 1, b: 1} len = 3>2  move left, {e: 1, c: 1, b: 1} still > 2, 
+    #                                  move left, {c: 1, b: 1} =2 
+    # ...
+    
+    
