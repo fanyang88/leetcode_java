@@ -67,3 +67,59 @@ class Solution {
 }
 
 
+PYTHON ***********************************************
+
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        #corner case: s = "a", t = "aa" output: ""
+        if len(s)< len(t):
+            return ""
+        
+        minlen = len(s)+1
+        hmap = {}
+        res = s
+        j = 0
+        i=0
+        total = len(t)
+        
+        for char in t:
+            hmap[char] = hmap[char] +1 if char in hmap else 1
+      
+        while i< len(s):
+            hmap[s[i]] = hmap[s[i]] -1 if s[i] in hmap else -1
+            if hmap[s[i]] >=0: # we find one char
+                total -= 1
+            
+            while total ==0: # find all chars in T, we can shrink window
+                # update res first
+                if i-j+1 < minlen:
+                    minlen = i-j+1
+                    res = s[j: i+1]
+                
+                # update left pointer then move
+                hmap[s[j]] = hmap[s[j]] +1 
+                if hmap[s[j]] > 0: #we recovered one char, stop shrink
+                    total += 1
+                j+=1
+            i+=1 
+            
+        return "" if minlen == len(s)+1 else res;
+        
+
+# Thoughts:
+#     s = "DAOBCODEBANC", t = "ABC"
+# map: {A: 1, B: 1, C: 1}
+# count= 3
+# i=0 map {A: 1, B: 1, C: 1, D: -1} do nothing, since < 0 not exist anyway
+# i=1 update map {A: 0, B: 1, C: 1, D: -1} since A:0 count --=2 find one
+# i=2 map {A: 0, B: 1, C: 1, D: -1 O:-1} do nothing, since < 0 not exist anyway
+# i=3 update map {A: 0, B: 0, C: 1, D: -1 O:-1} since B:0 count --=1 find one
+# i=4 update map {A: 0, B: 0, C: 0, D: -1 O:-1} since C:0 count --=0 find one
+#     now we see if we can shrink window
+#     j=0 update map {A: 0, B: 0, C: 0, D: 0, O:-1} since D:0 means we didn't recover any c in T,     otherwise, it would > 0 keep shrinking, update len = j+1~i
+#     j=1 update map {A: 1, B: 0, C: 0, D: 0, O:-1} since A:1 means we recover one char in T stop shrink
+        
+# i=5....
+
+# we keep expanding the window till we found all chars in T, then we do a while loop to shrink window till we recovered one char in T
+    
