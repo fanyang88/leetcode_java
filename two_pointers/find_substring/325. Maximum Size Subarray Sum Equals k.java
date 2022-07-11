@@ -63,3 +63,47 @@ class Solution {
     }
 }
 
+
+PYTHON version**************************************************
+class Solution:
+    def maxSubArrayLen(self, nums: List[int], k: int) -> int:
+        # the KEY
+        hmap = {0: -1}
+        c_sum = 0
+        maxlen = 0
+        for i, num in enumerate(nums):
+            c_sum += num
+            if c_sum - k in hmap:
+                maxlen = max(maxlen, i-hmap[c_sum - k])
+            
+            if c_sum not in hmap:
+                hmap[c_sum] = i
+        return maxlen
+        
+        
+        
+# thoughts:
+#     [1,-1,5,-2,3], k = 3
+# sum[i, j] = sum[0, j] -sum[0, i-1]
+# presum[1, 0, 5, 3, 6]
+
+# [-2,-1,2,1], k = 1
+# [-2, -3, -1, 0]
+# sum = -2 != k
+# sum =-3 sum-(-2) = -1 !=k 
+# sum =-1 sum-(-2) =1 = k, update res -1-(-3)=2 !=k
+# sum=0 sum-(-2)!=k  sum-(-3)!=k  sum-(-1)==k update res
+
+# to get any substring sum up to k, in O(n2) we can use sum[i,j] = sum[0, j] -sum[0, i-1] (i is from 0~j-1)
+
+# to upgrading, use hashmap
+# sum = -2 != k record {-2, 0}
+# sum =-3 sum-(-2) = -1 !=k  sum-1=-4 not exist in map record {-2, 0, -3: 1}
+# sum =-1 sum-(-2) =1 = k, update res  
+#         sum-(-3)=2 !=k
+#         since sum-k=-2 exist means from 0+1=1~2 exist with len=2 record {-2, 0, -3: 1, -1: 2}
+        
+# sum=0 sum-(-2)!=k  sum-(-3)!=k  sum-(-1)==k update res
+#       simplify as since 0-1=-1 exist 2+1=3~3 exist
+
+
