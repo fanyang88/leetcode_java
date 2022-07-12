@@ -111,3 +111,63 @@ class Solution {
       return new String(res);
   }
 }
+
+
+
+PYTHON ********************************************************
+
+class Solution:
+    def pushDominoes(self, dominoes: str) -> str:
+        posR, posL = -1, -1
+        res = ''
+        r_arr, l_arr = [0] * len(dominoes), [0] * len(dominoes)
+        
+        for i in range(len(dominoes)):
+            if dominoes[i] == '.':
+                if posR != -1:
+                    r_arr[i] = i-posR
+            else:
+                if dominoes[i] == 'R':
+                    posR = i
+                else:
+                    posR = -1
+        
+        for i in range(len(dominoes)-1, -1, -1):
+            if dominoes[i] == '.':
+                 if posL != -1:
+                    l_arr[i] = posL-i
+            else:
+                if dominoes[i] == 'L':
+                    posL = i
+                else:
+                    posL = -1
+        
+        for i in range(len(dominoes)):
+            if r_arr[i] == 0 and l_arr[i] != 0:
+                res += 'L'
+            elif r_arr[i] != 0 and l_arr[i] == 0:
+                res += 'R'
+            elif r_arr[i] == 0 and l_arr[i] == 0:
+                res += dominoes[i]
+            elif r_arr[i] < l_arr[i]:
+                res += 'R'
+            elif r_arr[i] > l_arr[i]:
+                res += 'L'
+            else:
+                res += '.'
+        
+        return res;
+        
+        
+# Thoughts:
+#     .L.R...LR..L
+# record the nearest L, R post for each .
+# R: [0,0,0,0,1,2,3,0,0,1,2,0]
+# L: [1,0,0,0,3,2,1,0,0,2,1,0]
+
+# if R=0 L!=0 it is L
+# if L=0 R!=0 it is R
+# if R=0, L=0, keep the same
+# if R < L, it is R
+# if R > L, it is L
+# else it is .
