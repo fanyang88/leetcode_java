@@ -49,3 +49,50 @@ class Solution {
       return res;
   }
 }
+
+
+
+PYTHON ***************************************************
+
+class Solution:
+    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+        length = len(nums)
+        nums.sort()
+        res = []
+        
+        for i in range (0, length-3):
+            if i>0 and nums[i-1]==nums[i]: 
+                continue
+            for j in range (i+1, length-2):
+                if j>i+1 and nums[j-1]==nums[j]: 
+                    continue
+                l, r = j+1, length-1
+                while l<r:
+                    if nums[i]+nums[j]+nums[l]+nums[r] == target:
+                        print(i, j, l, r)
+                        res.append([nums[i], nums[j], nums[l], nums[r]])
+                        l+=1
+                        r-=1
+                        while l<r and nums[l-1]==nums[l]: l+=1
+                        while l<r and nums[r+1]==nums[r]: r-=1
+                    
+                    elif nums[i]+nums[j]+nums[l]+nums[r] < target:
+                        l+=1
+                    else:
+                        r-=1
+                
+        return res
+                        
+                
+        
+        
+# Thoughts:
+#     similar like 3 sum
+#     [1,0,-1,0,-2,2]
+#     sort first:
+#     [-2,-1,0,0,1,2]
+    
+#     a=-2 b=-1   c = 0 d=2 sum-1<0 move c, since next is 0 continue c=1 sum=0 record c++ d-- exceed
+#     a=-2 b=0    c=0 d=2 sum=0 record it, c++ d-- c++ exit
+#     a=-2 b=1 exceed
+    
