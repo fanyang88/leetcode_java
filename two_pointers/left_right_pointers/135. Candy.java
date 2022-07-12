@@ -52,3 +52,67 @@ class Solution {
       return sum;
   }
 }
+
+
+
+PYTHON *********************************************
+
+class Solution:
+    def candy(self, ratings: List[int]) -> int:
+        candy = deque()
+      
+        
+        #init all to 1
+        for i in range(len(ratings)):
+            candy.append(1)
+        
+        #from left to right
+        for i in range(1, len(ratings)):
+            if ratings[i] > ratings[i-1]:
+                candy[i] = candy[i-1]+1
+                
+        #from right to left
+        for i in range(len(ratings)-2, -1, -1):
+            if ratings[i] > ratings[i+1]:
+                # this is the KEY
+                candy[i] = max(candy[i], candy[i+1]+1)
+        print(candy)
+        return sum(candy)
+        
+        
+        
+        
+# Thoughts:
+    
+# e.g: rating                 1,3,0,2,1,0
+# candies init:               1,1,1,1,1,1
+    
+#     if nums[i] > nums[i-1] 
+#         candy[i] = candy[i-1]+1
+# from left to right          1 2 1 2 1 1
+
+# continue work on same arr:
+#     if nums[i] > nums[i+1] 
+#         candy[i] = candy[i+1]+1
+        
+# from right to left          1 2 1 3 2 1  
+
+# sum candy is the answer
+
+#         [1,0, 2]
+# left:   [1, 1, 2]
+# right:  [2, 1, 2] - > sum is answer
+    
+    
+# [1,3,4,5,2]
+
+# [1,1,1,1,1]
+
+# [1,2,3,4,1]
+
+# [1,2,3,2,1]
+# for kid 4 this is not correct, since kid 4 has rating larger than kid 3 it should be 4
+# so candy[i] = max(candy[i], candy[i+1]+1)
+    
+    
+  
