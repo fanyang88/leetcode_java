@@ -26,3 +26,31 @@ class Solution {
       return maxArea;
   }
 }
+
+
+# PYTHON ******************************************************************************
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        max_v = 0
+        i, j = 0, len(height)-1
+        while i < j:
+            area = min(height[j], height[i]) * (j-i)
+            max_v = max(max_v, area)
+            if height[i] < height[j]:
+                i+=1
+            else:
+                j-=1
+        return max_v
+        
+#thoughts:      
+# [1,8,6,2,5,4,8,3,7]
+# i=1 j=7 max = 8 * 1
+# since 7>1 i++=8 max=7*7
+# since 8>7 j++=3 area = 6*3
+
+# we always keep the larger on and move the smaller one towards
+
+
+
+
