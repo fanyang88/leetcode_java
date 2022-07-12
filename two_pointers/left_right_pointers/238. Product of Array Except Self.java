@@ -35,3 +35,32 @@ class Solution {
         return res;
     }
 }
+
+
+
+PYTHON ***********************************************
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        ans = []
+        cur = 1
+        for i in range(len(nums)):
+            ans.append(cur)
+            cur *= nums[i]
+            
+        cur = 1
+        for i in range(len(nums)-1, -1, -1):
+            ans[i] = cur * ans[i]
+            cur *= nums[i]
+           
+        return ans   
+        
+
+# Thought: 
+#     nums = [1,2,3,4]
+# from left: [1,     1*1,   2*1, 1*3*2]
+# from right [2*3*4, 1*3,4, 1*4, 1]
+
+
+    
+        
