@@ -40,3 +40,38 @@ class Solution {
       return count;
   }
 }
+
+
+PYTHON *************************
+
+class Solution:
+    def threeSumSmaller(self, nums: List[int], target: int) -> int:
+        n = len(nums)
+        nums.sort()
+        count=0
+        
+        for i in range(n):
+            j, k=i+1, n-1
+            while j < k:
+                if nums[i] + nums[j] + nums[k] == target:
+                    # move it appoach to smaller
+                    k-=1
+                elif nums[i] + nums[j] + nums[k] > target:
+                    k-=1
+                else:
+                    count+= k-j
+                    j+=1
+        return count
+                
+            
+        
+        
+# Thought:
+#     nums = [-2,0,1,3]
+#     1. sort
+#     a=-2 b=0 c=3 sum=1<2 in this case we find one group, but given 1<3 so the sum must be also < target
+#     so the trick is if nums[i] + nums[j] + nums[k] < target
+#     any new tuple in nums[i] + nums[j] + nums[k-1] < target
+#     so the range is j+1~k  = k-(j+1)+1 = k-j
+    
+    
