@@ -39,3 +39,48 @@ class Solution {
       return res;
   }
 }
+
+
+PYTHON *****************************************************************
+
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        n, sum = len(height), 0
+        left, right, min_arr = deque(), deque(), []
+        
+        cur = height[0]
+        for i in range(n):
+            left.append(max(height[i], cur))
+            if height[i] > cur:
+                cur = height[i]
+        
+        cur = height[n-1]
+        for i in range(n-1,-1, -1):
+            right.appendleft(max(height[i], cur))
+            if height[i] > cur:
+                cur = height[i]
+           
+        for i in range(n):
+            min_arr.append(min(left[i], right[i]))
+            
+        for i in range(n):
+            sum+= min_arr[i] - height[i]
+            
+        return sum
+        
+        
+        
+# Thoughts:
+#     get the largest bar from left to right then right to left
+#     then we get the min which is the max height on each index
+#     then subtract with height to get water
+    
+    
+#     height = [0,1,0,2,1,0,1,3,2,1,2,1]
+#     from left[0,1,1,2,2,2,2,3,3,3,3,3]
+# from right   [3,3,3,3,3,3,3,3,2,2,2,1]
+
+#        min   [0,1,1,2,2,2,2,3,2,2,2,1]
+#     height = [0,1,0,2,1,0,1,3,2,1,2,1]
+#              [0,0,1,0,1,2,1,0,0,1,0,0] = 6
+        
