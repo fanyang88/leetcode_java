@@ -33,3 +33,34 @@ class Solution {
         return res;
     }
 }
+
+
+PYTHON ***************************************************************
+
+class Solution:
+    def threeSumClosest(self, nums: List[int], target: int) -> int:
+        nums.sort()
+        res = nums[0]+nums[1]+nums[2]
+        
+        for i in range(0, len(nums)-2):
+            if i>0 and nums[i]==nums[i-1]: continue
+            l, r = i+1, len(nums)-1
+            while l<r:
+                csum = nums[l]+nums[r]+nums[i]
+                if csum == target:
+                    return target
+            
+                if csum < target:
+                    l+=1
+                else:
+                    r-=1
+                if abs(target-csum) < abs(target - res):
+                    res = csum
+                
+        return res
+
+        
+# Thoughts similar to 3 sum, but we need to use diff to get the min difference 
+
+
+
