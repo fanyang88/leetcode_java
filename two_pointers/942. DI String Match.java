@@ -55,3 +55,41 @@ class Solution {
       return res;
   }
 }
+
+
+PYTHON ****************************************************
+class Solution:
+    def diStringMatch(self, s: str) -> List[int]:
+        right = len(s) 
+        left = 0
+        res = []
+        
+        for i in range(0, len(s)):
+            if s[i] == 'I':
+                res.append(left)
+                left +=1
+            else:
+                res.append(right)
+                right -=1
+        
+        if left == right:
+            res.append(left)
+        elif left ==0:
+            res.append(left)
+        else:
+            res.append(right)
+        return res
+    
+            
+
+# if first one is I, use the small one, if first one is D, use large one
+# e.g: IDID  - 0 1 2 3 4 
+# I -> 0
+# D -> 04
+# I -> 041
+# D -> 0413
+# res is 0 4 1  3 2
+
+# III - 0 1 2 3
+# 0 1 2
+
